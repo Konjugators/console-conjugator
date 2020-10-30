@@ -3,8 +3,8 @@ Präsens:
  du  -> Praesens_du
  er, sie, es -> Praesens er, sie, es
  wir, sie, Sie -> Infinitive
- ihr -> Infinitive + t, if Infinitive[-1]==t: infinitive + et
-
+ ihr -> Infinitive[-2:] == "en" -> infinitive - 2 + t, if Infinitive[-1]==t: infinitive + et
+	Infinitive[-1:] == "n" -> infinitive -1 + t
 Present perfekt (Partizip II):
  ich -> Hilfsverb conjugate ich + Partizip II
  du -> Hilfsverb conjugate du + Partizip II
