@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-        name="DeutschConjugator-pkg-Shynn",
+        name="Conjugator",
         version="0.0.1",
         author="Shynn Lawrence & Govind Gnanakumar",
         author_email="shynn.lawrence@gmail.com",
