@@ -60,7 +60,10 @@ def presentconjugate(verb, pronoun):
     verblist = conjugations[verbnum]
 
 
-def presentConjugate(verb:str, pronoun = "sie", tense="present"):
+def conjugate(verb:str, pronoun="Sie", tense="present"):
     assert "*" not in verb
-    if tense == "present":
+    if tense == "present"
         return presentconjugate(verb, pronoun)
+    if tense == "present perfect":
+        return presentperfectconjugate(verb, pronoun)
+def presentperfectConjugate(verb:str, pronoun="Sie", tense="presen")
