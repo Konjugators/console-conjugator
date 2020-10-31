@@ -63,7 +63,7 @@ def presentconjugate(verb, pronoun):
     verblist = conjugations[verbnum]
 
 
-def conjugate(verb:str, pronoun="alles", tense="present"):
+def conjugate(verb:str, pronoun="alles", tense = "present"):
     assert "*" not in verb
     if tense == "present":
         return presentconjugate(verb, pronoun)
@@ -71,6 +71,8 @@ def conjugate(verb:str, pronoun="alles", tense="present"):
         return presentperfectconjugate(verb, pronoun)
     if tense == "imperative":
         return imperativeconjugate(verb, pronoun)
+    if tense == "partizip 1":
+        return partizip1conjugate(verb)
 
 def presentperfectconjugate(verb:str, pronoun:str):
     verbnum = infinitives.index(verb)
@@ -100,3 +102,8 @@ def imperativeconjugate(verb:str, pronoun:str):
         return conjugations[verbnum][8]
     if pronoun == "sie" or pronoun == "wir":
         return conjugations[verbnum][7]+"en"
+
+def partizip1conjugate(verb:str):
+    verbnum = infinitives.index(verb)
+    return conjugations[verbnum][0] + "d"
+
