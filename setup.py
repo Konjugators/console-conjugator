@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-        name="Conjugator",
+        name="console-conjugator",
         version="0.0.1",
         author="Shynn Lawrence & Govind Gnanakumar",
         author_email="shynn.lawrence@gmail.com",
@@ -19,4 +19,5 @@ setuptools.setup(
             "Operating System :: OS Independent",
             ],
         python_requires='>=3.4',
+        include_package_data=True,
         )
