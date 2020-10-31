@@ -56,7 +56,7 @@ def line(row: int):
     return conjugations[row]
 
 
-def deZuEn(word: str):
+def format(word: str):
     z = 0
     val = 0
     newwrt = ""
@@ -100,11 +100,11 @@ def conjugate(verb: str, pronoun="alles", tense="present"):
     assert "*" not in verb
     if tense == "present":
         return presentconjugate(verb, pronoun)
-    if tense == "present perfect":
+    if tense == "present-perfect":
         return presentperfectconjugate(verb, pronoun)
     if tense == "imperative":
         return imperativeconjugate(verb, pronoun)
-    if tense == "partizip 1":
+    if tense == "partizip-1":
         return partizip1conjugate(verb)
 
 

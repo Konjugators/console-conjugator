@@ -28,6 +28,9 @@ def to_lower_case():
 
 if __name__ == "__main__":
     infinitive, pronoun, tense = to_lower_case()
-    print(f"infinitive: {infinitive}")
-    print(f"pronoun: {pronoun}")
-    print(f"tense: {tense}")
+    
+    import conjugator
+    from conjugator import format
+    infinitive, pronoun, tense = format(infinitive), format(pronoun), format(tense)
+
+    print(f"{pronoun} {conjugator.conjugate(infinitive, pronoun, tense)}")
