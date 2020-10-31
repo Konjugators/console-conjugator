@@ -39,7 +39,9 @@ if __name__ != "__main__":
     # Infinitives as just the infinitive forms of all verbs -> Faster indexing
     conjugations, infinitives = [], []
     # Dictionary of indexes to tenses/conjugations
-    with open("verbs.csv", "r", newline="") as file:
+    import os
+    path= os.path.abspath(os.path.join('resources', 'verbs.csv'))
+    with open(path, "r", newline="") as file:
         verblist = csv.reader(file)
         for row in verblist:
             conjugations.append(row)
