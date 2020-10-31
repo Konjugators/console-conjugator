@@ -6,6 +6,9 @@ if __name__ != "__main__":
     tohave = ["habe", 'hast', 'hat', 'haben', 'habt', 'breaker',
             'hatte', 'hattest', 'hatte', 'hatten', 'hattet', 
             'breaker', 'gehabt']
+    tobe = ["bin", "bist", "ist", "sind", "seid", "breaker",
+            "war", "warst", "war", "waren", "wart", 
+            'breaker', 'gewesen']
 
     global conjugations, infinitives, indexDict
     #Conjugations as 2d List of all conjugations/tenses
@@ -62,8 +65,28 @@ def presentconjugate(verb, pronoun):
 
 def conjugate(verb:str, pronoun="Sie", tense="present"):
     assert "*" not in verb
-    if tense == "present"
+    if tense == "present":
         return presentconjugate(verb, pronoun)
     if tense == "present perfect":
         return presentperfectconjugate(verb, pronoun)
-def presentperfectConjugate(verb:str, pronoun="Sie", tense="presen")
+
+def presentperfectconjugate(verb:str, pronoun):
+    verbnum = infinitives.index(verb)
+    if conjugations[verbnum][9] == "haben":
+        hilfensverb = tohave
+    elif conjugations[verbnum][9] == "sein":
+        hilfensverb = tobe
+    else:
+        return 0
+
+    if pronoun == "er" or pronoun == "es":
+        hilfensverb = hilfensverb[2]
+    if pronoun == "sie":
+        hilfesnverb = hilfensverb[2] + "/" + hilfensverb[3]
+    if pronoun == "ich":
+        hilfensverb = hilfensverb[0]
+    if pronoun == "du":
+        hilfensverb = hilfensverb[1]
+    if pronoun == "ihr":
+        hilfensverb = hilfensverb[4]
+    return hilfensverb + " " + conjugations[verbnum][5]
