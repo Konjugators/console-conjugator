@@ -40,6 +40,7 @@ if __name__ != "__main__":
     conjugations, infinitives = [], []
     # Dictionary of indexes to tenses/conjugations
     import os
+
     this_dir, this_filename = os.path.split(__file__)
     path = os.path.join(this_dir, "verbs.csv")
     with open(path, "r", newline="") as file:
