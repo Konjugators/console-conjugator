@@ -37,7 +37,7 @@ def main():
     )
     conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
 
-    print(f"\033[32m{pronoun}\033[0m{conj_out}")
+    print(f"\033[32m{pronoun}\033[0m {conj_out}")
 
 
 if __name__ == "__main__":
