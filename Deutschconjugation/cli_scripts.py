@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 
 import argparse
-
-
+def main():
+    args = get_args()
+    from Deutschconjugation import conjugator
+    infinitive, pronoun, tense = conjugator.format(args.infinitive), format(args.pronoun), format(args.tense)
+    conj_out = f"{conjugator.conjugate(infinitive, pronoun, tense)}"
+    print(conj_out)
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("infinitive", help="The unconjugated verb")
@@ -27,11 +31,14 @@ def to_lower_case():
 
 
 if __name__ == "__main__":
+    main()
+    '''
     infinitive, pronoun, tense = to_lower_case()
-    
+    args= get_args()
     import conjugator
     from conjugator import format
     infinitive, pronoun, tense = format(infinitive), format(pronoun), format(tense)
     conj_out = f"\033[1;32;40m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m 1;34;40m"
     
     print(f"\033[1;34;40m{pronoun}\033[0m 1;34;40m {conj_out}")
+    '''
