@@ -24,7 +24,7 @@ Then you can use it simply as such:
 conjugator.format("heis*en")
 [0] heißen
 ```
-This formats a*, o*, u*, and s* as ä, ö, ü, ß. Might be useful for those lacking a german keyboard layout.
+This formats a\*, o\*, u\*, and s\* as ä, ö, ü, ß. Might be useful for those lacking a german keyboard layout.
 To conjugate verbs, you can simply use the conjugate interface:
 ```python
 # Follows format verb-pronoun-tense

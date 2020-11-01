@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
-def main():
-    args = get_args()
-    from Deutschconjugation import conjugator
-    infinitive, pronoun, tense = conjugator.format(args.infinitive), format(args.pronoun), format(args.tense)
-    conj_out = f"{conjugator.conjugate(infinitive, pronoun, tense)}"
-    print(conj_out)
+
+
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("infinitive", help="The unconjugated verb")
@@ -30,20 +26,19 @@ def to_lower_case():
     return args.infinitive.lower(), args.pronoun.lower(), args.tense.lower()
 
 
+def main():
+    args = get_args()
+    from Deutschconjugation import conjugator
+
+    infinitive, pronoun, tense = (
+        conjugator.format(args.infinitive),
+        format(args.pronoun),
+        format(args.tense),
+    )
+    conj_out = f"\033[1;32;40m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m 1;34;0m"
+
+    print(f"\033[1;34;40m{pronoun}\033[0m 1;34;0m {conj_out}")
+
+
 if __name__ == "__main__":
     main()
-    '''
-    infinitive, pronoun, tense = to_lower_case()
-<<<<<<< HEAD:Deutschconjugation/cli_scripts.py
-    args= get_args()
-=======
-
->>>>>>> fc142cb3677c31c5c022db5d9cf7664397c96778:Deutschconjugation/cli.py
-    import conjugator
-    from conjugator import format
-
-    infinitive, pronoun, tense = format(infinitive), format(pronoun), format(tense)
-    conj_out = f"\033[1;32;40m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m 1;34;40m"
-
-    print(f"\033[1;34;40m{pronoun}\033[0m 1;34;40m {conj_out}")
-    '''
