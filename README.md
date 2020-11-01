@@ -16,18 +16,18 @@ pip install console-conjugator
 ```
 
 To test out your new install, open up a python REPL or file, and import the following:
-```python3
+```python
 from Deutschconjugation import conjugator
 ```
 Then you can use it simply as such:
-```python3
+```python
 conjugator.format("heis*en")
 [0] heißen
 ```
 This formats a*, o*, u*, and s* as ä, ö, ü, ß. Might be useful for those lacking a german keyboard layout.
 To conjugate verbs, you can simply use the conjugate interface:
-```python3
-#Follows format verb-pronoun-tense
+```python
+# Follows format verb-pronoun-tense
 conjugator.conjugate("spielen", "er", "present-perfect")
 [0] hat gespielt
 ```
@@ -39,5 +39,5 @@ As of now, the following tenses are supported for most verbs:
 
 If the method is not given the tense argument, it is assumed to be present.
 
-Thank you for viewing our repository, and have a good day!
+Thank you for checking out our project, and have a good day!
 -Shynn Lawrence, Govind Gnanakumar
