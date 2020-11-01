@@ -45,11 +45,6 @@ To conjugate verbs, you can simply use the conjugate interface:
 conjugator.conjugate("spielen", "er", "present-perfect")
 [0] hat gespielt
 ```
-As of now, the following tenses are supported for most verbs:
-1. present
-2. present-perfect
-3. partizip1
-4. imperative
 
 If the method is not given the tense argument, it is assumed to be present.
 
