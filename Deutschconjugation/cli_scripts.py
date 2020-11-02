@@ -23,7 +23,9 @@ def get_args():
 
 def to_lower_case():
     args = get_args()
-    return args.infinitive.lower(), args.pronoun.lower(), args.tense.lower()
+    # don't change case of pronoun
+    # to avoid conflating Sie and sie
+    return args.infinitive.lower(), args.pronoun(), args.tense.lower()
 
 
 def main():
