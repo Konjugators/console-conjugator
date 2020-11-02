@@ -60,22 +60,22 @@ def main():
     if args.pronoun == "alles" and args.tense != "alles":
         proalles(args.tense)
     if args.tense == "alles" and args.pronoun != "alles":
-        for i in ["present", "present-perfect", "imperative"]:
+        for i in ["present", "present-perfect", "simple-past", "future", "imperative"]:
             print(f"{i}: {conj(args.infinitive, args.pronoun, i)}", end="\n")
         return 0
     if args.tense == "alles" and args.pronoun == "alles":
-        for k in ["present", "present-perfect", "imperative", "partizip-1"]:
+        for k in ["present", "present-perfect", "simple-past", "future", "imperative"]:
             print(k + ": ")
             proalles(k)
         return 0
     
     import platform
-    
-    if platform.system() != "Windows":
-        conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
-        print(f"\033[32m{pronoun}\033[0m {conj_out}")
-    else:
-        print(f"{pronoun} {conjugator.conjugate(infinitive, pronoun, tense)}")
+    if args.tense != "alles" and args.pronoun != "alles":
+        if platform.system() != "Windows":
+            conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
+            print(f"\033[32m{pronoun}\033[0m {conj_out}")
+        else:
+            print(f"{pronoun} {conjugator.conjugate(infinitive, pronoun, tense)}")
 
 
 if __name__ == "__main__":
