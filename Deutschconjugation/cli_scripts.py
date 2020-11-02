@@ -64,7 +64,7 @@ def main():
             print(f"{i}: {conj(args.infinitive, args.pronoun, i)}", end="\n")
         return 0
     if args.tense == "alles" and args.pronoun == "alles":
-        for k in ["present", "present-perfect", "imperative", "partizip-1", "partizip-2"]:
+        for k in ["present", "present-perfect", "imperative", "partizip-1"]:
             print(k + ": ")
             proalles(k)
         return 0
