@@ -10,13 +10,6 @@ or Windows:
 > pip install console-conjugator
 ```
 
-Open a terminal in dom0 and run:
-```shell_session
-$ cd test
-$ echo Hello
-Hello
-```
-
 ## Usage
 After installation, you can use the cli interface in Linux:
 ```sh
