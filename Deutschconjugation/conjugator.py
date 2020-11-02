@@ -109,6 +109,8 @@ def conjugate(verb: str, pronoun="alles", tense="present"):
         answer =imperativeconjugate(verb, pronoun)
     if tense == "partizip-1":
         answer= partizip1conjugate(verb)
+    if tense == "partizip-2":
+        answer = partizip2conjugate(verb)
     answer = str(answer)
     
     if len(answer) < 10:
@@ -159,3 +161,7 @@ def imperativeconjugate(verb: str, pronoun: str):
 def partizip1conjugate(verb: str):
     verbnum = infinitives.index(verb)
     return conjugations[verbnum][0] + "d"
+
+def partizip2conjugate(verb : str):
+    verbnum = infinitives.index(verb)
+    return "zu " + conjugations[verbnum][5]

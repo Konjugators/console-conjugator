@@ -31,35 +31,41 @@ def to_lower_case():
 def main():
     args = get_args()
     import conjugator
+
     def conj(arg1, arg2, arg3):
         return conjugator.conjugate(arg1, arg2, arg3)
+
     if args.pronoun != "alles" and args.tense != "alles":
         infinitive, pronoun, tense = (
             conjugator.format(args.infinitive),
             format(args.pronoun),
             format(args.tense),
         )
+
     def proalles(tense):
-        things = ['ich', 'wir', 'Sie', 'du', 'ihr', 'er', 'sie']
+        things = ["ich", "wir", "Sie", "du", "ihr", "er", "sie"]
         inf = args.infinitive
         str = f"| ich {conj(inf, things[0], tense)} | wir {conj(inf, things[1], tense)} | Sie {conj(inf, things[2], tense)} |"
         ste = f"| du  {conj(inf, things[3], tense)} | ihr {conj(inf, things[4], tense)} | "
-        sty = f"| er  {conj(inf, things[5], tense)} | sie {conj(inf, things[6], tense)} |"
-        start = "_"*len(str)
-        stop = "‾"*len(sty)
-        mid = "-"*len(str)
-        midagain = "-"*len(ste)
+        sty = (
+            f"| er  {conj(inf, things[5], tense)} | sie {conj(inf, things[6], tense)} |"
+        )
+        start = "_" * len(str)
+        stop = "‾" * len(sty)
+        mid = "-" * len(str)
+        midagain = "-" * len(ste)
         print(start, str, mid, ste, midagain, sty, stop, sep="\n")
         return 0
+
     if args.pronoun == "alles" and args.tense != "alles":
         proalles(args.tense)
     if args.tense == "alles" and args.pronoun != "alles":
-        for i in ['present', 'present-perfect', 'imperative']:
+        for i in ["present", "present-perfect", "imperative"]:
             print(f"{i}: {conj(args.infinitive, args.pronoun, i)}", end="\n")
         return 0
     if args.tense == "alles" and args.pronoun == "alles":
-        for k in ['present', 'present-perfect', 'imperative']:
-            print(k+": ")
+        for k in ["present", "present-perfect", "imperative", "partizip-1", "partizip-2"]:
+            print(k + ": ")
             proalles(k)
         return 0
     conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
