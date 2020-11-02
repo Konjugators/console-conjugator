@@ -2,12 +2,19 @@
 
 ## Install with pip
 On Linux:
-```bash
+```sh
 $ pip3 install console-conjugator
 ```
 or Windows:
 ```cmd
 > pip install console-conjugator
+```
+
+Open a terminal in dom0 and run:
+```shell_session
+$ cd test
+$ echo Hello
+Hello
 ```
 
 ## Usage
