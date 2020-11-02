@@ -62,9 +62,14 @@ def main():
             print(k+": ")
             proalles(k)
         return 0
-    conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
-
-    print(f"\033[32m{pronoun}\033[0m {conj_out}")
+    
+    import platform
+    
+    if platform.system() != "Windows":
+        conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
+        print(f"\033[32m{pronoun}\033[0m {conj_out}")
+    else:
+        print(f"{pronoun} {conjugator.conjugate(infinitive, pronoun, tense)}")
 
 
 if __name__ == "__main__":
