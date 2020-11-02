@@ -90,11 +90,8 @@ def presentconjugate(verb, pronoun):
         return conjugations[verbnum][2]
     if pronoun.lower() == "sie":
         return (
-            conjugations[verbnum][3]
-            + ' for "she" and '
-            + conjugations[verbnum][0]
-            + " for plural and formal You"
-        )
+            conjugations[verbnum][0]
+            )
     if pronoun.lower() == "er" or pronoun.lower() == "es":
         return conjugations[verbnum][3]
     verblist = conjugations[verbnum]
@@ -123,24 +120,32 @@ def presentperfectconjugate(verb: str, pronoun: str):
     if pronoun == "er" or pronoun == "es":
         hilfensverb = hilfensverb[2]
     if pronoun.lower() == "sie":
-        hilfensverb = hilfensverb[2] + "/" + hilfensverb[3]
+        hilfensverb = hilfensverb[3]
     if pronoun == "ich":
         hilfensverb = hilfensverb[0]
     if pronoun == "du":
         hilfensverb = hilfensverb[1]
     if pronoun == "ihr":
         hilfensverb = hilfensverb[4]
-    return hilfensverb + " " + conjugations[verbnum][5]
+    if pronoun == "wir":
+        hilfensverb = hilfensverb[3]
+    return str(hilfensverb) + " " + str(conjugations[verbnum][5])
 
 
 def imperativeconjugate(verb: str, pronoun: str):
     verbnum = infinitives.index(verb)
     if pronoun == "du":
-        return conjugations[verbnum][7]
+        conj = conjugations[verbnum][7]
     if pronoun == "ihr":
-        return conjugations[verbnum][8]
+        conj = conjugations[verbnum][8]
     if pronoun == "sie" or pronoun == "wir":
-        return conjugations[verbnum][7] + "en"
+        conj = conjugations[verbnum][7] + "en"
+    else:
+        conj = 0
+    if conj[-1] == "e":
+        return conj[:-1]
+    else:
+        return conj
 
 
 def partizip1conjugate(verb: str):

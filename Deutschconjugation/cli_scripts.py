@@ -30,13 +30,25 @@ def to_lower_case():
 
 def main():
     args = get_args()
-    from Deutschconjugation import conjugator
-
-    infinitive, pronoun, tense = (
-        conjugator.format(args.infinitive),
-        format(args.pronoun),
-        format(args.tense),
-    )
+    import conjugator
+    if args.pronoun != "alles":
+        infinitive, pronoun, tense = (
+            conjugator.format(args.infinitive),
+            format(args.pronoun),
+            format(args.tense),
+        )
+    else:
+        things = ['ich', 'wir', 'Sie', 'du', 'ihr', 'er', 'sie']
+        inf = args.infinitive
+        tense = args.tense
+        def conj(arg1, arg2, arg3):
+            return conjugator.conjugate(arg1, arg2, arg3)
+        print(conj(inf, things[6], tense))
+        str = f"| ich {conj(inf, things[0], tense)} | wir {conj(inf, things[1], tense)} | Sie {conj(inf, things[2], tense)} |"
+        ste = f"| du  {conj(inf, things[3], tense)} | ihr {conj(inf, things[4], tense)} | "
+        sty = f"| er  {conj(inf, things[5], tense)}  | sie {conj(inf, things[6], tense)} |"
+        print(str, ste, sty, sep="\n")
+        return 0
     conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
 
     print(f"\033[32m{pronoun}\033[0m {conj_out}")
