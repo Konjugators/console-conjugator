@@ -111,6 +111,8 @@ def conjugate(verb: str, pronoun="alles", tense="present"):
         answer= partizip1conjugate(verb)
     if tense == "partizip-2":
         answer = partizip2conjugate(verb)
+    if tense == "simple-past":
+        answer = simplepastconjugate(verb, pronoun)
     answer = str(answer)
     
     if len(answer) < 10:
@@ -164,4 +166,32 @@ def partizip1conjugate(verb: str):
 
 def partizip2conjugate(verb : str):
     verbnum = infinitives.index(verb)
-    return "zu " + conjugations[verbnum][5]
+    return conjugations[verbnum][5]
+
+def simplepastconjugate(verb : str, pronoun : str):
+    verbnum = infinitives.index(verb)
+    base = conjugations[verbnum][4]
+    second = base.split(" ")
+    print(second)
+    print(type(second))
+    if len(second) > 1:
+        base, second = second[0], second[1]
+    else:
+        base, second = second[0], ""
+    if pronoun == "ich":
+        pass
+    if pronoun == "du":
+        if base[-1] == "t":
+            base += "est"
+        else:
+            base += "st"
+    if pronoun == "er" or pronoun == "es":
+        pass
+    if pronoun == "wir" or pronoun == "sie":
+        base += "en"
+    if pronoun == "ihr":
+        if base[-1] == "t":
+            base += "et"
+        else:
+            base+= "t"
+    return base + " " + second
