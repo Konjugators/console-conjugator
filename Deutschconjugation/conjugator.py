@@ -94,20 +94,26 @@ def presentconjugate(verb, pronoun):
             )
     if pronoun.lower() == "er" or pronoun.lower() == "es":
         return conjugations[verbnum][3]
+    if pronoun.lower() == "wir":
+        return conjugations[verbnum][0]
     verblist = conjugations[verbnum]
 
 
 def conjugate(verb: str, pronoun="alles", tense="present"):
     assert "*" not in verb
     if tense == "present":
-        return presentconjugate(verb, pronoun)
+        answer= presentconjugate(verb, pronoun)
     if tense == "present-perfect":
-        return presentperfectconjugate(verb, pronoun)
+        answer = presentperfectconjugate(verb, pronoun)
     if tense == "imperative":
-        return imperativeconjugate(verb, pronoun)
+        answer =imperativeconjugate(verb, pronoun)
     if tense == "partizip-1":
-        return partizip1conjugate(verb)
-
+        answer= partizip1conjugate(verb)
+    answer = str(answer)
+    
+    if len(answer) < 10:
+        answer = answer + " "*(10-len(answer))
+    return answer
 
 def presentperfectconjugate(verb: str, pronoun: str):
     verbnum = infinitives.index(verb)
@@ -136,12 +142,14 @@ def imperativeconjugate(verb: str, pronoun: str):
     verbnum = infinitives.index(verb)
     if pronoun == "du":
         conj = conjugations[verbnum][7]
-    if pronoun == "ihr":
+        
+    elif pronoun == "ihr":
         conj = conjugations[verbnum][8]
-    if pronoun == "sie" or pronoun == "wir":
+    elif pronoun == "sie" or pronoun == "wir":
         conj = conjugations[verbnum][7] + "en"
     else:
-        conj = 0
+        conj = "Nonee"
+
     if conj[-1] == "e":
         return conj[:-1]
     else:
