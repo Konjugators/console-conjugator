@@ -2,7 +2,7 @@
 if __name__ != "__main__":
     import csv
 
-    global tohave
+    global tohave, tobe, tobecome
     tohave = [
         "habe",
         "hast",
@@ -33,6 +33,20 @@ if __name__ != "__main__":
         "breaker",
         "gewesen",
     ]
+    tobecome = [
+            "werde",
+            "wirst",
+            "wird",
+            "werden",
+            "werdet",
+            "breaker",
+            "wurde",
+            "wurdest",
+            "wurde",
+            "wurden",
+            "wurdet",
+            "breaker",
+            "geworden"]
 
     global conjugations, infinitives, indexDict
     # Conjugations as 2d List of all conjugations/tenses
@@ -111,6 +125,8 @@ def conjugate(verb: str, pronoun="alles", tense="present"):
         answer= partizip1conjugate(verb)
     if tense == "partizip-2":
         answer = partizip2conjugate(verb)
+    if tense == "future":
+        answer = presentperfectconjugate(verb, pronoun, True)
     if tense == "simple-past":
         answer = simplepastconjugate(verb, pronoun)
     answer = str(answer)
@@ -119,14 +135,17 @@ def conjugate(verb: str, pronoun="alles", tense="present"):
         answer = answer + " "*(10-len(answer))
     return answer
 
-def presentperfectconjugate(verb: str, pronoun: str):
+def presentperfectconjugate(verb: str, pronoun: str, future = False):
     verbnum = infinitives.index(verb)
-    if conjugations[verbnum][9] == "haben":
-        hilfensverb = tohave
-    elif conjugations[verbnum][9] == "sein":
-        hilfensverb = tobe
+    if future == False:
+        if conjugations[verbnum][9] == "haben":
+            hilfensverb = tohave
+        elif conjugations[verbnum][9] == "sein":
+            hilfensverb = tobe
+        else:
+            return 1
     else:
-        return 1
+        hilfensverb = tobecome
     if pronoun == "er" or pronoun == "es":
         hilfensverb = hilfensverb[2]
     if pronoun.lower() == "sie":
@@ -139,6 +158,8 @@ def presentperfectconjugate(verb: str, pronoun: str):
         hilfensverb = hilfensverb[4]
     if pronoun == "wir":
         hilfensverb = hilfensverb[3]
+    if future == True:
+        return str(hilfensverb) + " " + str(conjugations[verbnum][0])
     return str(hilfensverb) + " " + str(conjugations[verbnum][5])
 
 
@@ -172,8 +193,7 @@ def simplepastconjugate(verb : str, pronoun : str):
     verbnum = infinitives.index(verb)
     base = conjugations[verbnum][4]
     second = base.split(" ")
-    print(second)
-    print(type(second))
+    
     if len(second) > 1:
         base, second = second[0], second[1]
     else:
