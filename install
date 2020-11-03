@@ -58,6 +58,13 @@ main() {
     then
         sudo pip3 install .
     fi
+    
+    if [ $? -ne 0 ]
+    then
+        Installation failed.
+    else
+        echo 'Installation complete.'
+    fi
 }
 
 main
