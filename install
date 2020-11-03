@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Installation script
+
+# Colors
+BLUE="\033[0;34m"
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+PURPLE="\033[0;35m"
+NC="\033[0m" # No Color
+
+prereqs() {
+    if cat /etc/*-release | egrep -qi "manjaro|arch"
+    then
+        os="arch"
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be an ${BLUE}Arch{NC} derivative."
+        echo -e "Installing ${RED}git${NC} and ${RED}python3${NC}..."
+        sudo pacman -S git python3
+    elif cat /etc/*-release | egrep -qi "debian|ubuntu"
+    then
+        os="debian"
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be a ${BLUE}Debian{NC} derivative."
+        echo -e "Installing ${RED}git${NC} and ${RED}python3${NC}..."
+        sudo apt update
+        sudo apt install git python3
+    else
+        echo 'Your Linux distribution is not yet supported.'
+        echo -e "Currently, only ${BLUE}Arch/Manjaro${NC} and ${BLUE}Debian/Ubuntu${NC} are supported."
+        echo 'Please proceed with the installation manually.'
+        exit 1
+    fi
+}
+
+main() {
+    prereqs
+
+    if command -v python3 &> /dev/null
+    then
+        echo 'Python not found on device and installation unsuccessful.'
+        exit 1
+    fi
+    if command -v git &> /dev/null
+    then
+        echo 'Git not found on device and installation unsuccessful.'
+        exit 1
+    fi
+
+    builtin cd $HOME
+    git clone https://github.com/sandkoan/console-conjugator.git
+    if [ $? -ne 0 ]
+    then
+        sudo git clone https://github.com/sandkoan/console-conjugator.git
+    fi
+    builtin cd console-conjugator
+
+    pip3 install .
+    if [ $? -ne 0 ]
+    then
+        sudo pip3 install .
+    fi
+}
+
+main
