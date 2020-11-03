@@ -34,19 +34,20 @@ if __name__ != "__main__":
         "gewesen",
     ]
     tobecome = [
-            "werde",
-            "wirst",
-            "wird",
-            "werden",
-            "werdet",
-            "breaker",
-            "wurde",
-            "wurdest",
-            "wurde",
-            "wurden",
-            "wurdet",
-            "breaker",
-            "geworden"]
+        "werde",
+        "wirst",
+        "wird",
+        "werden",
+        "werdet",
+        "breaker",
+        "wurde",
+        "wurdest",
+        "wurde",
+        "wurden",
+        "wurdet",
+        "breaker",
+        "geworden",
+    ]
 
     global conjugations, infinitives, indexDict
     # Conjugations as 2d List of all conjugations/tenses
@@ -103,9 +104,7 @@ def presentconjugate(verb, pronoun):
     if pronoun.lower() == "du":
         return conjugations[verbnum][2]
     if pronoun.lower() == "sie":
-        return (
-            conjugations[verbnum][0]
-            )
+        return conjugations[verbnum][0]
     if pronoun.lower() == "er" or pronoun.lower() == "es":
         return conjugations[verbnum][3]
     if pronoun.lower() == "wir":
@@ -116,13 +115,13 @@ def presentconjugate(verb, pronoun):
 def conjugate(verb: str, pronoun="alles", tense="present"):
     assert "*" not in verb
     if tense == "present":
-        answer= presentconjugate(verb, pronoun)
+        answer = presentconjugate(verb, pronoun)
     if tense == "present-perfect":
         answer = presentperfectconjugate(verb, pronoun)
     if tense == "imperative":
-        answer =imperativeconjugate(verb, pronoun)
+        answer = imperativeconjugate(verb, pronoun)
     if tense == "partizip-1":
-        answer= partizip1conjugate(verb)
+        answer = partizip1conjugate(verb)
     if tense == "partizip-2":
         answer = partizip2conjugate(verb)
     if tense == "future":
@@ -130,12 +129,13 @@ def conjugate(verb: str, pronoun="alles", tense="present"):
     if tense == "simple-past":
         answer = simplepastconjugate(verb, pronoun)
     answer = str(answer)
-    
+
     if len(answer) < 10:
-        answer = answer + " "*(10-len(answer))
+        answer = answer + " " * (10 - len(answer))
     return answer
 
-def presentperfectconjugate(verb: str, pronoun: str, future = False):
+
+def presentperfectconjugate(verb: str, pronoun: str, future=False):
     verbnum = infinitives.index(verb)
     if future == False:
         if conjugations[verbnum][9] == "haben":
@@ -167,7 +167,7 @@ def imperativeconjugate(verb: str, pronoun: str):
     verbnum = infinitives.index(verb)
     if pronoun == "du":
         conj = conjugations[verbnum][7]
-        
+
     elif pronoun == "ihr":
         conj = conjugations[verbnum][8]
     elif pronoun == "sie" or pronoun == "wir":
@@ -185,15 +185,17 @@ def partizip1conjugate(verb: str):
     verbnum = infinitives.index(verb)
     return conjugations[verbnum][0] + "d"
 
-def partizip2conjugate(verb : str):
+
+def partizip2conjugate(verb: str):
     verbnum = infinitives.index(verb)
     return conjugations[verbnum][5]
 
-def simplepastconjugate(verb : str, pronoun : str):
+
+def simplepastconjugate(verb: str, pronoun: str):
     verbnum = infinitives.index(verb)
     base = conjugations[verbnum][4]
     second = base.split(" ")
-    
+
     if len(second) > 1:
         base, second = second[0], second[1]
     else:
@@ -213,5 +215,5 @@ def simplepastconjugate(verb : str, pronoun : str):
         if base[-1] == "t":
             base += "et"
         else:
-            base+= "t"
+            base += "t"
     return base + " " + second

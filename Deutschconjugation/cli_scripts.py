@@ -68,11 +68,14 @@ def main():
             print(k + ": ")
             proalles(k)
         return 0
-    
+
     import platform
+
     if args.tense != "alles" and args.pronoun != "alles":
         if platform.system() != "Windows":
-            conj_out = f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
+            conj_out = (
+                f"\033[34m{conjugator.conjugate(infinitive, pronoun, tense)}\033[0m"
+            )
             print(f"\033[32m{pronoun}\033[0m {conj_out}")
         else:
             print(f"{pronoun} {conjugator.conjugate(infinitive, pronoun, tense)}")
