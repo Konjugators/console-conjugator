@@ -29,6 +29,8 @@ def to_lower_case():
 
 
 def main():
+    import os
+    print(os.getcwd())
     args = get_args()
     import conjugator
 
