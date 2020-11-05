@@ -32,7 +32,7 @@ def main():
     import os
     print(os.getcwd())
     args = get_args()
-    from Deutschconjugation import conjugator
+    import conjugator
 
     def conj(arg1, arg2, arg3):
         return conjugator.conjugate(arg1, arg2, arg3)
