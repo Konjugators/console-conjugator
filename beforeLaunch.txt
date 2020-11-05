@@ -1,0 +1,1 @@
+-Change any references to conjugator to from Deutschconjugation import conjugator
