@@ -25,6 +25,7 @@ er tut
 You can also use the conjugation module in scripts:
 ```python
 from Deutschconjugation import conjugator
+
 # Follows format verb-pronoun-tense
 conjugator.conjugate("spielen", "er", "present-perfect")
 >>> hat gespielt
@@ -32,7 +33,9 @@ conjugator.conjugate("spielen", "er", "present-perfect")
 
 This formats a\*, o\*, u\*, and s\* as ä, ö, ü, ß. This is may be useful for those lacking a German keyboard layout.
 ```python
+
 from Deutschconjugation import conjugator
+
 conjugator.format("heis*en")
 >>> heißen
 ```
