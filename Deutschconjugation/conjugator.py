@@ -1,5 +1,5 @@
 """Things to do when the file is imported"""
-if __name__ == "__main__":
+if __name__ != "__main__":
     import csv
 
     global conjugations, infinitives, tense_conj
@@ -34,13 +34,15 @@ def findLine(verb: str):
 
 
 def format(word: str):
+    if "^" not in word:
+        return word
     z = 0
     val = 0
     newwrt = ""
     conv = {"a": "ä", "o": "ö", "u": "ü", "s": "ß"}
     convlist = ["a", "o", "u", "s"]
     while val <= len(word) - 1:
-        if word[val] in convlist and word[val + 1] == "*":
+        if word[val] in convlist and word[val + 1] == "^":
             newwrt += conv[word[val]]
             val += 2
         else:
@@ -75,7 +77,10 @@ def future(verb: str, pronoun: str):
 
 
 def conjugate(verb: str, pronoun="alles", tense="present", get_all=False):
-    assert "*" not in verb
+    # assert "*" not in verb
+
+    verb = format(verb)
+
     tensemethods = {
         "present": present,
         "simple-past": simplepast,
@@ -85,9 +90,8 @@ def conjugate(verb: str, pronoun="alles", tense="present", get_all=False):
     }
 
     answer = str(tensemethods[tense](verb, pronoun)).strip()
+    # print(answer)
+
     if get_all == True and len(answer) < 15:
         answer = answer + "_" * (15 - len(answer))
     return answer
-
-
-print(conjugate("machen", "ihr", "present"))
