@@ -1,18 +1,47 @@
 # Console Conjugator
 
+
+## About
+Hallo und guten Tag!
+
+Have you ever had trouble conjguating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
+This project may be useful to you! We can help you conjugate almost all of the german standard verbs.
+
+As of now, the following tenses are supported:
+1. Future (Zukunft)
+2. present (Präsens)
+3. present-perfect (Perfekt)
+4. simple-past (Präteritum)
+5. past-perfect (Plusquamperfekt)
+<s>
 ## Install with pip
 On Linux:
-```sh
+</s>
+
+```bash
+
 $ pip3 install console-conjugator
+
 ```
-or Windows:
+
+<s>or Windows:</s>
+
 ```cmd
+
 > pip install console-conjugator
+
+```
+### Pypi package is being remade, manually install like so:
+
+```bash
+wget https://raw.githubusercontent.com/Konjugators/console-conjugator/main/install
+chmod +x
+./install
 ```
 
 ## Usage
 After installation, you can use the cli interface in Linux:
-```sh
+```bash
 $ konjugier machen er present
 er macht
 ```
@@ -39,15 +68,3 @@ from Deutschconjugation import conjugator
 conjugator.format("heis*en")
 >>> heißen
 ```
-
-## About
-Hallo und guten Tag!
-
-Have you ever had trouble conjguating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
-This project may be useful to you! We can help you conjugate almost all of the german standard verbs.
-
-As of now, the following tenses are supported:
-1. present
-2. present-perfect
-3. imperative
-4. partizip1
