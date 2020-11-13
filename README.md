@@ -13,10 +13,10 @@ As of now, the following tenses are supported:
 3. present-perfect (Perfekt)
 4. simple-past (Präteritum)
 5. past-perfect (Plusquamperfekt)
-<s>
+
 ## Install with pip
 On Linux:
-</s>
+
 
 ```bash
 
@@ -24,7 +24,7 @@ $ pip3 install console-conjugator
 
 ```
 
-<s>or Windows:</s>
+or Windows:
 
 ```cmd
 

@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="console-conjugator",
-    version="0.0.7",
-    author="Shynn Lawrence & Govind Gnanakumar",
+    version="0.1.0",
+    author="Shynn Lawrence, Aditya Matam, Govind Gnanakumar",
     author_email="shynn.lawrence@gmail.com",
-    description="Deutsch command line conjugator",
+    description="Versatile German command line conjugator",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/sandkoan/console-conjugator",
+    url="https://github.com/Konjugators/console-conjugator",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
