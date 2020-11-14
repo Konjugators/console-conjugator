@@ -1,10 +1,11 @@
-my_file = open("Ubersetzen/german.txt", "r", encoding="utf-8")
+my_file = open("german.txt", "r", encoding="utf-8")
 content = my_file.read()
 content = content.split("\n")
 
 
 import csvinterface
 from googletrans import Translator
+print(len(content))
 
 transmaschine = Translator()
 x = 0  # Progress update

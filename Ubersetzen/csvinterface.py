@@ -1,5 +1,5 @@
 def appverbs(z: list):
-    with open("Ubersetzen/DeutschDictionary.csv", "a") as newverbs:
+    with open("DeutschDictionary.csv", "a") as newverbs:
         csvWriter = csv.writer(newverbs, delimiter=",")
         csvWriter.writerows(z)
 
