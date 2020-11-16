@@ -15,8 +15,12 @@ if __name__ != "__main__":
     with open(path, "r", newline="") as file:
         verblist = csv.reader(file)
         for row in verblist:
-            conjugations.append(row)
-            infinitives.append(row[0])
+            try:
+                conjugations.append(row)
+                infinitives.append(row[0])
+            except:
+                conjugations.append([])
+                infinitives.append("")
 
 
 def findIndex(verb: str):
