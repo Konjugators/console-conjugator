@@ -12,7 +12,7 @@ if __name__ != "__main__":
 
     this_dir, this_filename = os.path.split(__file__)
     path = os.path.join(this_dir, "verbs.csv")
-    with open(path, "r", newline="") as file:
+    with open(path, "r", newline="", encoding="utf-8") as file:
         verblist = csv.reader(file)
         for row in verblist:
             try:
