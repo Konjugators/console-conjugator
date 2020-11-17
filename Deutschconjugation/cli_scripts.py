@@ -19,6 +19,7 @@ def get_args():
     args = parser.parse_args()
     return args
 
+
 # Change words in german to english, so that the conjugation process works properly
 def tensePreprocessing(tense: str) -> str:
     if tense in ["präsens"]:
@@ -34,10 +35,12 @@ def tensePreprocessing(tense: str) -> str:
     else:
         return tense
 
-#Lower_case the args
+
+# Lower_case the args
 def lower_format():
     args = get_args()
     return args.infinitive.lower(), args.pronoun, args.tense.lower()
+
 
 # Conjugate and print args
 def main():
@@ -52,4 +55,4 @@ def main():
 if __name__ != "__main__":
     import argparse
 
-#TODO Table
+# TODO Table

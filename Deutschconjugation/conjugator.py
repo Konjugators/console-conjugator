@@ -22,7 +22,7 @@ if __name__ != "__main__":
                 conjugations.append([])
                 infinitives.append("")
 
-#CSV indexing and searching methods
+# CSV indexing and searching methods
 def findIndex(verb: str):
     assert len(verb) > 0
     return infinitives.index(verb)
@@ -35,6 +35,7 @@ def line(row: int):
 
 def findLine(verb: str):
     return line(findIndex(verb))
+
 
 # Formatting for those without german keyboard
 def format(word: str):
@@ -53,6 +54,7 @@ def format(word: str):
             newwrt += word[val]
             val += 1
     return newwrt
+
 
 # All tenses conjugation:
 def present(verb: str, pronoun: str):
@@ -78,6 +80,7 @@ def pastperfect(verb: str, pronoun: str):
 def future(verb: str, pronoun: str):
     temp = findLine(verb)
     return temp[tense_conj[pronoun] + 24]
+
 
 # Header conjugate: Branches to different methods
 def conjugate(verb: str, pronoun="alles", tense="present", get_all=False):
