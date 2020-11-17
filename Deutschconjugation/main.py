@@ -4,6 +4,15 @@ import os
 import re
 import csv
 
+from sys import platform
+
+
+if platform == "linux" or platform == "linux2":
+    raise
+elif platform == "darwin":
+    # OS X
+elif platform == "win32":
+    # Windows...
 
 def allverbs():
     infinitives = []
