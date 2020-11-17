@@ -1,10 +1,35 @@
 import time
 import curses
-import fuzzy as fzf
-import csvinterface
+import os
+# import csvinterface
+import re
+import csv
 
-collections = csvinterface.verbreturns()
+def allverbs():
+    infinitives = []
+    this_dir, this_filename = os.path.split(__file__)
+    path = os.path.join(this_dir, "verbs.csv")
+    with open(path, "r", newline="") as file:
+        verblist = csv.reader(file)
+        for row in verblist:
+            try:
+                infinitives.append(row[0])
+            except:
+                pass
+    return infinitives
 
+# Implemented by Govind Gnanakumar
+def fuzzyfinder(user_input, collection):
+    suggestions = []
+    pattern = ".*?".join(user_input)
+    regex = re.compile(pattern)
+    for item in collection:
+        match = regex.search(item)
+        if match:
+            suggestions.append((len(match.group()), match.start(), item))
+    return [x for _, _, x in sorted(suggestions)]
+
+collections = allverbs()
 def clearbreak(stdscr):
     curses.flushinp()
     stdscr.clear()
@@ -47,7 +72,7 @@ def main(stdscr, text: str, ind: int, collections:list) -> str:
             break
 
         if tempcount == 2:
-            x = fzf.fuzzyfinder(text, collection=collections)
+            x = fuzzyfinder(text, collection=collections)
             for val in x:
                 try:
                     if ind == x.index(val):
@@ -69,7 +94,7 @@ def main(stdscr, text: str, ind: int, collections:list) -> str:
             else:
                 stdscr.addstr(text)
 
-            for val in fzf.fuzzyfinder(text, collection=collections):
+            for val in fuzzyfinder(text, collection=collections):
                 try:
                     stdscr.addstr("\n" + val, curses.color_pair(4))
                 except:
@@ -101,4 +126,4 @@ def lauf(coll:list):
 
 text, ind = lauf(collections)
 
-print("You chose: " + str(fzf.fuzzyfinder(text, collections)[ind]))
+print("You chose: " + str(fuzzyfinder(text, collections)[ind]))
