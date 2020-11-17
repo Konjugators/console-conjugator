@@ -3,16 +3,14 @@ import curses
 import os
 import re
 import csv
-
 from sys import platform
 
-
 if platform == "linux" or platform == "linux2":
-    raise
+    pass
 elif platform == "darwin":
-    # OS X
+    raise("You must be using Linux to use the fuzzy finder")
 elif platform == "win32":
-    # Windows...
+    raise("You must be using Linux to use the fuzzy finder")
 
 def allverbs():
     infinitives = []
