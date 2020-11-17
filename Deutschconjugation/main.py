@@ -1,9 +1,9 @@
 import time
 import curses
 import os
-# import csvinterface
 import re
 import csv
+
 
 def allverbs():
     infinitives = []
@@ -18,6 +18,7 @@ def allverbs():
                 pass
     return infinitives
 
+
 # Implemented by Govind Gnanakumar
 def fuzzyfinder(user_input, collection):
     suggestions = []
@@ -29,13 +30,17 @@ def fuzzyfinder(user_input, collection):
             suggestions.append((len(match.group()), match.start(), item))
     return [x for _, _, x in sorted(suggestions)]
 
+
 collections = allverbs()
+
+
 def clearbreak(stdscr):
     curses.flushinp()
     stdscr.clear()
     return 1
 
-def main(stdscr, text: str, ind: int, collections:list) -> str:
+
+def main(stdscr, text: str, ind: int, collections: list) -> str:
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)
     curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_YELLOW)
@@ -105,7 +110,8 @@ def main(stdscr, text: str, ind: int, collections:list) -> str:
 
     return text, ind, halt, backspace
 
-def lauf(coll:list):
+
+def lauf(coll: list):
     text = ""
     ind2 = -1
     ind = 0
@@ -123,6 +129,7 @@ def lauf(coll:list):
             break
 
     return text, ind2
+
 
 text, ind = lauf(collections)
 
