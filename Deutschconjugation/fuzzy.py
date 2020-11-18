@@ -5,13 +5,6 @@ import re
 import csv
 from sys import platform
 
-if platform == "linux" or platform == "linux2":
-    pass
-elif platform == "darwin":
-    raise("You must be using Linux to use the fuzzy finder")
-elif platform == "win32":
-    raise("You must be using Linux to use the fuzzy finder")
-
 def allverbs():
     infinitives = []
     this_dir, this_filename = os.path.split(__file__)
@@ -25,7 +18,6 @@ def allverbs():
                 pass
     return infinitives
 
-
 # Implemented by Govind Gnanakumar
 def fuzzyfinder(user_input, collection):
     suggestions = []
@@ -37,15 +29,10 @@ def fuzzyfinder(user_input, collection):
             suggestions.append((len(match.group()), match.start(), item))
     return [x for _, _, x in sorted(suggestions)]
 
-
-collections = allverbs()
-
-
 def clearbreak(stdscr):
     curses.flushinp()
     stdscr.clear()
     return 1
-
 
 def main(stdscr, text: str, ind: int, collections: list) -> str:
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
@@ -117,7 +104,6 @@ def main(stdscr, text: str, ind: int, collections: list) -> str:
 
     return text, ind, halt, backspace
 
-
 def lauf(coll: list):
     text = ""
     ind2 = -1
@@ -137,7 +123,14 @@ def lauf(coll: list):
 
     return text, ind2
 
-
-text, ind = lauf(collections)
-
-print("You chose: " + str(fuzzyfinder(text, collections)[ind]))
+def main():
+    if platform == "linux" or platform == "linux2":
+        pass
+    elif platform == "darwin":
+        raise("You must be using Linux to use the fuzzy finder (ASCII coloring not generally supported on OSX")
+    elif platform == "win32":
+        raise("You must be on a Linux OS to use the fuzzy finder (ASCII coloring not generally supported on windows)")
+    collections = allverbs()
+    text, ind = lauf(collections)
+    print("You chose: " + str(fuzzyfinder(text, collections)[ind]))
+main()

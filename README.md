@@ -2,12 +2,12 @@
 
 
 ## About
-Hallo und guten Tag!
+Hallo!
 
 Have you ever had trouble conjguating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
 This project may be useful to you! We can help you conjugate almost all of the german standard verbs.
 
-As of now, the following tenses are supported:
+As of now, the following tenses are supported (in german):
 1. Future (Zukunft)
 2. present (Präsens)
 3. present-perfect (Perfekt)
@@ -31,27 +31,15 @@ or Windows:
 > pip install console-conjugator
 
 ```
-### Pypi package is being remade, manually install like so:
-
-```bash
-wget https://raw.githubusercontent.com/Konjugators/console-conjugator/main/install
-chmod +x
-./install
-```
 
 ## Usage
-After installation, you can use the cli interface in Linux:
+After installation, you can use the cli interface in most terminals and scripts:
 ```bash
 $ konjugier machen er present
 er macht
 ```
-or Windows:
-```cmd
-> konjugier tun er present-perfect
-er tut
-```
 
-You can also use the conjugation module in scripts:
+You can also use the conjugation module in python scripts:
 ```python
 from Deutschconjugation import conjugator
 
@@ -59,12 +47,8 @@ from Deutschconjugation import conjugator
 conjugator.conjugate("spielen", "er", "present-perfect")
 >>> hat gespielt
 ```
+The character-set a*, o*, u*, and s* will be formatted automatically to ä, ö, ü, and ß (for german).
 
-This formats a\*, o\*, u\*, and s\* as ä, ö, ü, ß. This is may be useful for those lacking a German keyboard layout.
-```python
+A French Module will be soon added to this package, courtesy of [@AdiMatam](https://github.com/AdiMatam)
 
-from Deutschconjugation import conjugator
-
-conjugator.format("heis*en")
->>> heißen
-```
+Official Fuzzy Finder support to be added soon.
