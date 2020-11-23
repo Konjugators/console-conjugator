@@ -20,7 +20,7 @@ def tensePreprocessing(tense: str) -> str:
         return "simple-past"
     if tense in ["presentperfect", "perfekt"]:
         return "present-perfect"
-    if tense in ["plusquamperfect", "pastperfect"]:
+    if tense in ["plusquamperfect", "pastperfect", "pastPerfect"]:
         return "past-perfect"
     if tense in ["zukunft"]:
         return "future"
@@ -31,7 +31,7 @@ def tensePreprocessing(tense: str) -> str:
 def modeVerstehen():
     args = get_args()
     if args.mode[0] == "f":
-        import fuzzy
+        from Deutschconjugation import fuzzy
         fuzzy.start()
     if args.mode[0] == "c":
         from Deutschconjugation import conjugator as conj
@@ -51,18 +51,11 @@ def lower_format():
     return args.i[0].lower(), args.i[1].lower(), args.i[2].lower()
     # infinitive.lower(), args.pronoun, args.tense.lower()
 
-
 # Conjugate and print args
 def main():
     modeVerstehen()
 
-
-
 if __name__ != "__main__":
     import argparse
-    main()
-
-else:
-    main()
 
 # TODO Table
