@@ -123,7 +123,7 @@ def lauf(coll: list):
 
     return text, ind2
 
-def main():
+def start():
     if platform == "linux" or platform == "linux2":
         pass
     elif platform == "darwin":
@@ -133,4 +133,3 @@ def main():
     collections = allverbs()
     text, ind = lauf(collections)
     print("You chose: " + str(fuzzyfinder(text, collections)[ind]))
-main()
