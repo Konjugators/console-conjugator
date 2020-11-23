@@ -8,7 +8,7 @@ Have you ever had trouble conjguating your verbs? Forgot "machen" in present-per
 This project may be useful to you! We can help you conjugate almost all of the german standard verbs.
 
 To install and use this project, see this quick terminal video:
-<script id="asciicast-Utrqg35SNAcpJcVunii67ZN2g" src="https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.js" async></script>
+[![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
 # Install with pip
 On Linux:
