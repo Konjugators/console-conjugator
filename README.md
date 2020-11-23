@@ -49,6 +49,6 @@ conjugator.conjugate("spielen", "er", "present-perfect")
 ```
 The character-set a*, o*, u*, and s* will be formatted automatically to ä, ö, ü, and ß (for german).
 
-A French Module will be soon added to this package, courtesy of [@AdiMatam](https://github.com/AdiMatam)
+A French Module will be soon added to this package.
 
 Official Fuzzy Finder support to be added soon.
