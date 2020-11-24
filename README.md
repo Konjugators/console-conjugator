@@ -50,7 +50,7 @@ You can also use the conjugation module in python scripts:
 >>> conjugator.conjugate("spielen", "er", "present-perfect")
 hat gespielt
 ```
-The character-set a*, o*, u*, and s* will be formatted automatically to ä, ö, ü, and ß (for german).
+The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, ü, and ß (for german).
 
 # Progress
 ## Finished:
