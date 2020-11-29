@@ -7,7 +7,7 @@ import re
 import csv
 from sys import platform
 
-def allverbs():
+def allverbs()->list:
     infinitives = []
     this_dir, this_filename = os.path.split(__file__)
     path = os.path.join(this_dir, "verbs.csv")
@@ -21,7 +21,7 @@ def allverbs():
     return infinitives
 
 # Implemented by Govind Gnanakumar
-def fuzzyfinder(user_input, collection):
+def fuzzyfinder(user_input, collection)->list:
     suggestions = []
     pattern = ".*?".join(user_input)
     regex = re.compile(pattern)
@@ -31,12 +31,11 @@ def fuzzyfinder(user_input, collection):
             suggestions.append((len(match.group()), match.start(), item))
     return [x for _, _, x in sorted(suggestions)]
 
-def clearbreak(stdscr):
+def clearbreak(stdscr)->None:
     curses.flushinp()
     stdscr.clear()
     return 1
-
-def main(stdscr, text: str, ind: int, collections: list) -> str:
+def main(stdscr, text: str, ind: int, collections: list)->tuple([str, int, bool, bool]):
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)
     curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_YELLOW)
@@ -106,7 +105,7 @@ def main(stdscr, text: str, ind: int, collections: list) -> str:
 
     return text, ind, halt, backspace
 
-def lauf(coll: list):
+def lauf(coll: list)->tuple([str, int]):
     text = ""
     ind2 = -1
     ind = 0
@@ -125,7 +124,7 @@ def lauf(coll: list):
 
     return text, ind2
 
-def start():
+def start()->None:
     if platform == "linux" or platform == "linux2":
         pass
     elif platform == "darwin":
@@ -137,7 +136,8 @@ def start():
     text, ind = lauf(collections)
     verb = str(fuzzyfinder(text, collections)[ind])
     print("You chose: " + verb)
-    from Deutschconjugation import cli_scripts
+    import cli_scripts
+    # TODO: from Deutschconjugation import cli_scripts
     x = input("Type a pronoun here: ")
     y = cli_scripts.tensePreprocessing(input("Type the tense here: "))
     print(conjugator.conjugate(verb, x, y))

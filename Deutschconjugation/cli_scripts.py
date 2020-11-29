@@ -3,7 +3,7 @@ import argparse
 import sys
 
 # Parse Args
-def get_args():
+def get_args()->str:
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', nargs= 1, help="The conjugation functions that can be performed (f->fuzzy, c->conjugate, a->alles). \
         Add the -h flag after selecting a mode to see in-depth help for each option")
@@ -36,7 +36,7 @@ def tensePreprocessing(tense: str) -> str:
         return tense
 
 # Literally translates to "Mode understanding - c and f are the mode arguments"
-def modeVerstehen():
+def modeVerstehen()->str:
     args = get_args()
     if args.mode[0] == "f":
         import fuzzy
@@ -59,7 +59,7 @@ def modeVerstehen():
             allesConjugate(args.i[0], [args.i[1]])
 
 # Lower_case the args
-def lower_format():
+def lower_format()->str:
     args = get_args()
     if len(args.i) < 3:
         raise("You are missing a few things")
@@ -69,7 +69,7 @@ def lower_format():
     return args.i[0].lower(), args.i[1].lower(), args.i[2].lower()
 
 # Conjugate and print args
-def main():
+def main()->str:
     modeVerstehen()
 
 if __name__ != "__main__":

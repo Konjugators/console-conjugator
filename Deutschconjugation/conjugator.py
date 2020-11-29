@@ -1,12 +1,12 @@
 # Load CSV when file is imported:
 if __name__ != "__main__":
     import csv
+    import os
 
     global conjugations, infinitives, tense_conj
     # Conjugations as 2d List of all conjugations/tenses
     # Infinitives as just the infinitive forms of all verbs -> Faster indexing
     conjugations, infinitives = [], []
-    import os
 
     tense_conj = {"ich": 1, "du": 2, "er": 3, "wir": 4, "ihr": 5, "sie": 6}
 
@@ -23,22 +23,19 @@ if __name__ != "__main__":
                 infinitives.append("")
 
 # CSV indexing and searching methods
-def findIndex(verb: str):
+def findIndex(verb: str)->str:
     assert len(verb) > 0
     return infinitives.index(verb)
 
-
-def line(row: int):
+def line(row: int)->str:
     assert row != -1
     return conjugations[row]
 
-
-def findLine(verb: str):
+def findLine(verb: str)->str:
     return line(findIndex(verb))
 
-
 # Formatting for those without german keyboard
-def format(word: str):
+def format(word: str)->str:
     if "^" not in word:
         return word
     z = 0
@@ -55,37 +52,33 @@ def format(word: str):
             val += 1
     return newwrt
 
-
 # All tenses conjugation:
-def present(verb: str, pronoun: str):
+def present(verb: str, pronoun: str)->str:
     temp = findLine(verb)
     return temp[tense_conj[pronoun]]
 
-
-def simplepast(verb: str, pronoun: str):
+def simplepast(verb: str, pronoun: str)->str:
     temp = findLine(verb)
     return temp[tense_conj[pronoun] + 6]
 
 
-def presentperfect(verb: str, pronoun: str):
+def presentperfect(verb: str, pronoun: str)->str:
     temp = findLine(verb)
     return temp[tense_conj[pronoun] + 12]
 
 
-def pastperfect(verb: str, pronoun: str):
+def pastperfect(verb: str, pronoun: str)->str:
     temp = findLine(verb)
     return temp[tense_conj[pronoun] + 18]
 
 
-def future(verb: str, pronoun: str):
+def future(verb: str, pronoun: str)->str:
     temp = findLine(verb)
     return temp[tense_conj[pronoun] + 24]
 
 
 # Header conjugate: Branches to different methods
-def conjugate(verb: str, pronoun="alles", tense="present", get_all=False):
-    # assert "*" not in verb
-
+def conjugate(verb: str, pronoun="alles", tense="present", get_all=False)->str:
     verb = format(verb)
 
     tensemethods = {
@@ -97,12 +90,9 @@ def conjugate(verb: str, pronoun="alles", tense="present", get_all=False):
     }
 
     answer = str(tensemethods[tense](verb, pronoun)).strip()
-
-    if get_all == True and len(answer) < 15:
-        answer = answer + "_" * (15 - len(answer))
     return answer
 
-def allesPronounsConjugate(verb, tense):
+def allesPronounsConjugate(verb, tense)->str:
     conj = conjugate
     temp = []
     for val in ["ich", "du", "er", "wir", "ihr", "sie"]:
@@ -127,7 +117,7 @@ def allesPronounsConjugate(verb, tense):
 |3rd Person| {temp[2]}  |{temp[5]}  |\n" + minus("‾")
     return temp_str
 
-def allesConjugate(verb, tenses):
+def allesConjugate(verb, tenses)->str:
     fullText = ""
     for tense in tenses:
         fullText += f"The {tense} tense:\n" + allesPronounsConjugate(verb, tense) + "\n"
