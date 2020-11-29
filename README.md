@@ -60,7 +60,9 @@ The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, 
 - [X] Connect CLI with Deutsch Conjugation
 - [X] Fuzzy Finder for Deutsch
 - [X] Add optional arguments to access both conjugation and fuzzy finder from CLI
-- [X] PyPi Upload
+- - [X] Revamp Optional Arguments with Conditional Arguments
+- [ ] Latest version PyPi Upload
+- [X] Alles Command Line
 
 ## Work in Progress:
 ### - Français - 
