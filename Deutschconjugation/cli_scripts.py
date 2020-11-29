@@ -6,7 +6,7 @@ import sys
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', nargs= 1)
-    parser.add_argument("i", nargs=("?" if 'f' in sys.argv else 3), help="The unconjugated verb")
+    parser.add_argument("i", nargs=("?" if 'f' in sys.argv else 3 if 'c' in sys.argv else 2 if 'a' in sys.argv else 0), help="The unconjugated verb")
 
     args = parser.parse_args()
     return args
@@ -31,14 +31,24 @@ def tensePreprocessing(tense: str) -> str:
 def modeVerstehen():
     args = get_args()
     if args.mode[0] == "f":
-        from Deutschconjugation import fuzzy
+        import fuzzy
         fuzzy.start()
     if args.mode[0] == "c":
-        from Deutschconjugation import conjugator as conj
+        # TODO: from Deutschconjugation import conjugator as conj
+        import conjugator as conj
         infinitive, pronoun, tense = lower_format()
         tense = tensePreprocessing(tense)
         z = conj.conjugate(infinitive, pronoun, tense)
         print(z)
+    if args.mode[0] == "a":
+        # TODO: from Deutschconjugation.conjugator import allesConjugate
+        from conjugator import allesConjugate
+        args = get_args()
+        if args.i[1] == "alles" or args.i[1] == "a":
+            tenses = ["present", "simple-past", "present-perfect", "past-perfect", "future"]
+            allesConjugate(args.i[0], tenses)
+        else:
+            allesConjugate(args.i[0], [args.i[1]])
 
 # Lower_case the args
 def lower_format():
@@ -49,7 +59,6 @@ def lower_format():
     if len(args.i) > 3:
         raise("You have too many things")
     return args.i[0].lower(), args.i[1].lower(), args.i[2].lower()
-    # infinitive.lower(), args.pronoun, args.tense.lower()
 
 # Conjugate and print args
 def main():
@@ -58,4 +67,6 @@ def main():
 if __name__ != "__main__":
     import argparse
 
-# TODO Table
+if __name__ == "__main__":
+    import argparse
+    main()

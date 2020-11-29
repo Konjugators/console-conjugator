@@ -8,7 +8,7 @@ if __name__ != "__main__":
     conjugations, infinitives = [], []
     import os
 
-    tense_conj = {"ich": 1, "du": 2, "er": 3, "ihr": 3, "wir": 4, "ihr": 5, "sie": 6}
+    tense_conj = {"ich": 1, "du": 2, "er": 3, "wir": 4, "ihr": 5, "sie": 6}
 
     this_dir, this_filename = os.path.split(__file__)
     path = os.path.join(this_dir, "verbs.csv")
@@ -97,8 +97,38 @@ def conjugate(verb: str, pronoun="alles", tense="present", get_all=False):
     }
 
     answer = str(tensemethods[tense](verb, pronoun)).strip()
-    # print(answer)
 
     if get_all == True and len(answer) < 15:
         answer = answer + "_" * (15 - len(answer))
     return answer
+
+def allesPronounsConjugate(verb, tense):
+    conj = conjugate
+    temp = []
+    for val in ["ich", "du", "er", "wir", "ihr", "sie"]:
+        temp.append(conj(verb, val, tense))
+
+    greatest = 0
+    for val in temp:
+        if len(val) > greatest:
+            greatest = len(val)
+
+    for z in range(len(temp)):
+        if len(temp[z]) < greatest:
+            temp[z] = temp[z] + " "*(greatest-len(temp[z]))
+            print(temp[z])
+
+    minus = lambda symbol: f"{symbol}"*greatest * 2 + f"{symbol}"*4 + f"{symbol}"*3 + f"{symbol}" * len("1st Person: ")
+    temp_str = minus("_") + \
+    f"\n\
+|            singular{' '*(greatest-len('singular'))}  |plural{' '*(greatest-len('plural'))}\n{minus('—')}\n\
+|1st Person| {temp[0]}  |{temp[3]}  |\n{minus('—')}\n\
+|2nd Person| {temp[1]}  |{temp[4]}  |\n{minus('—')}\n\
+|3rd Person| {temp[2]}  |{temp[5]}  |\n" + minus("‾")
+    return temp_str
+
+def allesConjugate(verb, tenses):
+    fullText = ""
+    for tense in tenses:
+        fullText += f"The {tense} tense:\n" + allesPronounsConjugate(verb, tense) + "\n"
+    print(fullText)

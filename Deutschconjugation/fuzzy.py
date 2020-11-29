@@ -1,4 +1,5 @@
-from Deutschconjugation import conjugator
+# TODO: from Deutschconjugation import conjugator
+import conjugator
 import time
 import curses
 import os
