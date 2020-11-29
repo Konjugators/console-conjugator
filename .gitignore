@@ -2,12 +2,10 @@
 **/__pycache__/
 
 # VS Code
-.vscode/
+.vscode/*
 
 # Intellij
 .idea/
 
 # C extensions
 *.so
-
-.vscode/*

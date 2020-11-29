@@ -5,9 +5,17 @@ import sys
 # Parse Args
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', nargs= 1)
-    parser.add_argument("i", nargs=("?" if 'f' in sys.argv else 3 if 'c' in sys.argv else 2 if 'a' in sys.argv else 0), help="The unconjugated verb")
-
+    parser.add_argument('mode', nargs= 1, help="The conjugation functions that can be performed (f->fuzzy, c->conjugate, a->alles). \
+        Add the -h flag after selecting a mode to see in-depth help for each option")
+    if   'f' in sys.argv:
+        parser.add_argument("fuzzy", nargs="?", help="No arguments necessary, however only ASCII terminals are supported")
+    elif 'c' in sys.argv:
+        parser.add_argument("i", nargs=(3), help="Verb information; Follows format: verb pronoun tense")
+    elif 'a' in sys.argv:
+        parser.add_argument("i", nargs=(2), help="Verb and tense for verb charts; If all tenses are required, use a in place of tense. \
+            Follows format: verb tense")
+    else:
+        print("You did not provide a proper mode (f, c, or a), please try again with one of such arguments")
     args = parser.parse_args()
     return args
 
