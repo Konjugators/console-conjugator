@@ -1,16 +1,21 @@
 # Console Conjugator
 
-
-
 [![PyPi version](https://pypip.in/v/console-conjugator/badge.png)](https://crate.io/packages/$REPO/)
-[![Downloads](https://pepy.tech/badge/console-conjugator)](https://pepy.tech/project/console-conjugator)
+[![Downloads](https://static.pepy.tech/personalized-badge/console-conjugator?period=total&units=international_system&left_color=brightgreen&right_color=yellow&left_text=PyPi%20Downloads)](https://pepy.tech/project/console-conjugator)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![PyPI status](https://img.shields.io/pypi/status/ansicolortags.svg)](https://pypi.org/project/console-conjugator/)
 ## About
 Hallo!
 
-Have you ever had trouble conjguating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
+Have you ever had trouble conjugating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
 This project may be useful to you! We can help you conjugate almost all of the german standard verbs.
+
+The following tenses are supported (im Deutsch):
+- present
+- simple-past
+- present-perfect
+- past-perfect
+- future
+- conditional (future II)
 
 To install and use this project, see this quick terminal video:
 [![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
@@ -43,7 +48,6 @@ $ konjugier f
 ```
 Note: Fuzzy Finder is only availible on OS X and Linux distributions
 
-
 You can also use the conjugation module in python scripts:
 ```python
 >>> from Deutschconjugation import conjugator
@@ -63,25 +67,26 @@ The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, 
 - [X] Add optional arguments to access both conjugation and fuzzy finder from CLI
 - - [X] Revamp Optional Arguments with Conditional Arguments
 - [ ] Latest version PyPi Upload
-- [X] Alles Command Line
 
 ## Work in Progress:
 ### - Français - 
 - [ ] Create French Conjugation module
 - [ ] Create CLI for Spanish
 - [ ] Connect CLI with French Conjugation
-- [ ] Fuzzy Finder for French
+- [X] Fuzzy Finder for French (same across modules)
 - [ ] PyPi Upload
 
 ### - Española - 
 - [ ] Create Spanish Conjugation module
 - [ ] Create CLI for Spanish
 - [ ] Connect CLI with Spanish Conjugation
-- [ ] Fuzzy Finder for Spanish
+- [X] Fuzzy Finder for Spanish (same across modules)
 - [ ] PyPi Upload
 
 ## RoadMap (Further):
-- [ ] German Dictionary (Deutsch -> Englisch)
+- [ ] Fuzzy Finder Revamp: Select pronoun and tense in fzf format
+- [X] Create German Dictionary csv (Deutsch -> Englisch)
+- - [ ] Corresponding CommandLine interface
 - [ ] French Dictionary (Français -> l'anglais)
 - [ ] Spanish Dictionary (Española -> ingles)
 
