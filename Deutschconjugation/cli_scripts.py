@@ -69,26 +69,30 @@ def modeSelection() -> str:
     args = get_args()
     if args.mode[0] == "f":
         # TODO:
-        from Deutschconjugation import fuzzy
+        # from Deutschconjugation import fuzzy
+        from . import fuzzy
+
         # import fuzzy
 
         fuzzy.start()
     if args.mode[0] == "c":
         # TODO: 
-        from Deutschconjugation import conjugator as conj
+        # from Deutschconjugation import conjugator as conj
+        from . import conjugator
         # from conjugator import conjugate
 
         infinitive, pronoun, tense = lower_format()
         tense = tensePreprocessing(tense)
-        z = conj.conjugate(infinitive, pronoun, tense, getColorAvailability())
+        z = conjugator.conjugate(infinitive, pronoun, tense, getColorAvailability())
         print(z)
     if args.mode[0] == "a":
         # TODO: 
-        from Deutschconjugation.conjugator import allConjugate
+        # from Deutschconjugation.conjugator import allConjugate
+        from . import conjugator
         # from conjugator import allConjugate
 
         args = get_args()
-        allConjugate(args.i[0], [args.i[1]], getColorAvailability())
+        conjugator.allConjugate(args.i[0], [args.i[1]], getColorAvailability())
 
 
 # Lower_case the args

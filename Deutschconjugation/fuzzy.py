@@ -5,7 +5,8 @@ See LICENSE for more information
 """
 
 # TODO: 
-from Deutschconjugation import conjugator
+from . import conjugator
+# conjugator = dc.conjugator
 # import conjugator
 import time
 import curses
@@ -156,7 +157,8 @@ def start() -> None:
     print("You chose: " + verb)
 
     # TODO: 
-    from Deutschconjugation import cli_scripts
+    
+    from . import cli_scripts
     # import cli_scripts
     x = input("Type a pronoun here: ")
     y = cli_scripts.tensePreprocessing(input("Type the tense here: "))
