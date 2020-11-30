@@ -4,7 +4,8 @@
 
 [![PyPi version](https://pypip.in/v/console-conjugator/badge.png)](https://crate.io/packages/$REPO/)
 [![Downloads](https://pepy.tech/badge/console-conjugator)](https://pepy.tech/project/console-conjugator)
-
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![PyPI status](https://img.shields.io/pypi/status/ansicolortags.svg)](https://pypi.org/project/console-conjugator/)
 ## About
 Hallo!
 
