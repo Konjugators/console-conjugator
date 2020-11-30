@@ -21,7 +21,7 @@ if __name__ != "__main__":
         "Magenta": "\u001b[35m",
         "Cyan": "\u001b[36m",
         "White": "\u001b[37m",
-         "Reset": "\u001b[0m",
+        "Reset": "\u001b[0m",
     }
 
     global conjugations, infinitives, tense_conj
