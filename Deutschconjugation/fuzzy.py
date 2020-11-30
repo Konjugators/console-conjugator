@@ -4,8 +4,9 @@ Copyright (C) 2020 Shynn Lawrence, Govind Gnanakumar
 See LICENSE for more information
 """
 
-# TODO: from Deutschconjugation import conjugator
-import conjugator
+# TODO: 
+from Deutschconjugation import conjugator
+# import conjugator
 import time
 import curses
 import os
@@ -146,16 +147,17 @@ def start() -> None:
         pass
         # raise("You must be using Linux to use the fuzzy finder (ASCII coloring not generally supported on OSX")
     elif platform == "win32":
-        raise (
+        raise OSError(
             "You must be on a Linux OS to use the fuzzy finder (ASCII coloring not generally supported on windows)"
         )
     collections = allverbs()
     text, ind = lauf(collections)
     verb = str(fuzzyfinder(text, collections)[ind])
     print("You chose: " + verb)
-    import cli_scripts
 
-    # TODO: from Deutschconjugation import cli_scripts
+    # TODO: 
+    from Deutschconjugation import cli_scripts
+    # import cli_scripts
     x = input("Type a pronoun here: ")
     y = cli_scripts.tensePreprocessing(input("Type the tense here: "))
     print(conjugator.conjugate(verb, x, y))

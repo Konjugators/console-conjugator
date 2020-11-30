@@ -65,23 +65,27 @@ def tensePreprocessing(tense: str) -> str:
 
 
 # Literally translates to "Mode understanding - c and f are the mode arguments"
-def modeVerstehen() -> str:
+def modeSelection() -> str:
     args = get_args()
     if args.mode[0] == "f":
-        import fuzzy
+        # TODO:
+        from Deutschconjugation import fuzzy
+        # import fuzzy
 
         fuzzy.start()
     if args.mode[0] == "c":
-        # TODO: from Deutschconjugation import conjugator as conj
-        from conjugator import conjugate
+        # TODO: 
+        from Deutschconjugation import conjugator as conj
+        # from conjugator import conjugate
 
         infinitive, pronoun, tense = lower_format()
         tense = tensePreprocessing(tense)
-        z = conjugate(infinitive, pronoun, tense, getColorAvailability())
+        z = conj.conjugate(infinitive, pronoun, tense, getColorAvailability())
         print(z)
     if args.mode[0] == "a":
-        # TODO: from Deutschconjugation.conjugator import allesConjugate
-        from conjugator import allConjugate
+        # TODO: 
+        from Deutschconjugation.conjugator import allConjugate
+        # from conjugator import allConjugate
 
         args = get_args()
         allConjugate(args.i[0], [args.i[1]], getColorAvailability())
@@ -99,7 +103,7 @@ def lower_format() -> str:
 
 # Conjugate and print args
 def main() -> str:
-    modeVerstehen()
+    modeSelection()
 
 if __name__ == "__main__":
     main()
