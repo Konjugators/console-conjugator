@@ -77,7 +77,6 @@ def format(word: str) -> str:
 def colorize(text: str, tense) -> str:
     textlist = text.split(" ")
     texts = text
-    print(len(textlist))
     if len(textlist) == 2:
         texts = (
             colors["Green"]
@@ -157,7 +156,7 @@ def conjugate(verb: str, pronoun="alles", tense="present", get_all=False) -> str
     return answer
 
 
-def allesPronounsConjugate(verb, tense) -> str:
+def allPronounsConjugate(verb, tense) -> str:
     conj = conjugate
     temp = []
     for val in ["ich", "du", "er", "wir", "ihr", "sie"]:
@@ -167,6 +166,8 @@ def allesPronounsConjugate(verb, tense) -> str:
     for val in temp:
         if len(val) > greatest:
             greatest = len(val)
+
+    
 
     for z in range(len(temp)):
         if len(temp[z]) < greatest:
@@ -191,10 +192,10 @@ def allesPronounsConjugate(verb, tense) -> str:
     return temp_str
 
 
-def allesConjugate(verb, tenses) -> str:
+def allConjugate(verb, tenses) -> str:
     fullText = ""
     if tenses == "alles":
         tenses = ["present", "simple-past", "present-perfect", "past-perfect", "future"]
     for tense in tenses:
-        fullText += f"The {tense} tense:\n" + allesPronounsConjugate(verb, tense) + "\n"
+        fullText += f"The {tense} tense:\n" + allPronounsConjugate(verb, tense) + "\n"
     print(fullText)

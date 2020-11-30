@@ -66,15 +66,15 @@ def modeVerstehen() -> str:
         fuzzy.start()
     if args.mode[0] == "c":
         # TODO: from Deutschconjugation import conjugator as conj
-        import conjugator as conj
+        from conjugator import conjugate
 
         infinitive, pronoun, tense = lower_format()
         tense = tensePreprocessing(tense)
-        z = conj.conjugate(infinitive, pronoun, tense)
+        z = conjugate(infinitive, pronoun, tense)
         print(z)
     if args.mode[0] == "a":
         # TODO: from Deutschconjugation.conjugator import allesConjugate
-        from conjugator import allesConjugate
+        from conjugator import allConjugate
 
         args = get_args()
         if args.i[1] == "alles" or args.i[1] == "a":
@@ -85,19 +85,18 @@ def modeVerstehen() -> str:
                 "past-perfect",
                 "future",
             ]
-            allesConjugate(args.i[0], tenses)
+            allConjugate(args.i[0], tenses)
         else:
-            allesConjugate(args.i[0], [args.i[1]])
+            allConjugate(args.i[0], [args.i[1]])
 
 
 # Lower_case the args
 def lower_format() -> str:
     args = get_args()
     if len(args.i) < 3:
-        raise ("You are missing a few things")
-        print("error")
+        raise ("You are missing a few arguments")
     if len(args.i) > 3:
-        raise ("You have too many things")
+        raise ("You have given too many arguments")
     return args.i[0].lower(), args.i[1].lower(), args.i[2].lower()
 
 
