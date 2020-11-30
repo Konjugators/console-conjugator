@@ -8,9 +8,6 @@ import os
 import platform
 # Load CSV when file is imported:
 if __name__ != "__main__":
-    import csv
-    import os
-
     # ASCII colors:
     colors = {
         "Black": "\u001b[30m",
@@ -42,6 +39,7 @@ if __name__ != "__main__":
             except:
                 conjugations.append([])
                 infinitives.append("")
+                print("Error at this row: ", row)
 
 # CSV indexing and searching methods
 def findIndex(verb: str) -> str:

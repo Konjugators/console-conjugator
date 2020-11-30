@@ -6,6 +6,11 @@ See LICENSE for more information
 """
 import argparse
 import platform
+# TODO:
+# from . import conjugator
+# from . import fuzzy
+import conjugator
+import fuzzy
 
 def getColorAvailability():
     if platform.system() not in ['Linux', 'Darwin']: colors = False
@@ -68,29 +73,13 @@ def tensePreprocessing(tense: str) -> str:
 def modeSelection() -> str:
     args = get_args()
     if args.mode[0] == "f":
-        # TODO:
-        # from Deutschconjugation import fuzzy
-        from . import fuzzy
-
-        # import fuzzy
-
         fuzzy.start()
     if args.mode[0] == "c":
-        # TODO: 
-        # from Deutschconjugation import conjugator as conj
-        from . import conjugator
-        # from conjugator import conjugate
-
         infinitive, pronoun, tense = lower_format()
         tense = tensePreprocessing(tense)
         z = conjugator.conjugate(infinitive, pronoun, tense, getColorAvailability())
         print(z)
     if args.mode[0] == "a":
-        # TODO: 
-        # from Deutschconjugation.conjugator import allConjugate
-        from . import conjugator
-        # from conjugator import allConjugate
-
         args = get_args()
         conjugator.allConjugate(args.i[0], [args.i[1]], getColorAvailability())
 

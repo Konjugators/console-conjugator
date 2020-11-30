@@ -5,9 +5,10 @@ See LICENSE for more information
 """
 
 # TODO: 
-from . import conjugator
-# conjugator = dc.conjugator
-# import conjugator
+# from . import conjugator
+# from . import cli_scripts
+
+import conjugator
 import time
 import curses
 import os
@@ -156,10 +157,6 @@ def start() -> None:
     verb = str(fuzzyfinder(text, collections)[ind])
     print("You chose: " + verb)
 
-    # TODO: 
-    
-    from . import cli_scripts
-    # import cli_scripts
     x = input("Type a pronoun here: ")
     y = cli_scripts.tensePreprocessing(input("Type the tense here: "))
     print(conjugator.conjugate(verb, x, y))
