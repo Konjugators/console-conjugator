@@ -13,7 +13,8 @@ import re
 import csv
 from sys import platform
 
-def allverbs()->list:
+
+def allverbs() -> list:
     infinitives = []
     this_dir, this_filename = os.path.split(__file__)
     path = os.path.join(this_dir, "verbs.csv")
@@ -26,8 +27,9 @@ def allverbs()->list:
                 pass
     return infinitives
 
+
 # Implemented by Govind Gnanakumar
-def fuzzyfinder(user_input, collection)->list:
+def fuzzyfinder(user_input, collection) -> list:
     suggestions = []
     pattern = ".*?".join(user_input)
     regex = re.compile(pattern)
@@ -37,11 +39,16 @@ def fuzzyfinder(user_input, collection)->list:
             suggestions.append((len(match.group()), match.start(), item))
     return [x for _, _, x in sorted(suggestions)]
 
-def clearbreak(stdscr)->None:
+
+def clearbreak(stdscr) -> None:
     curses.flushinp()
     stdscr.clear()
     return 1
-def main(stdscr, text: str, ind: int, collections: list)->tuple([str, int, bool, bool]):
+
+
+def main(
+    stdscr, text: str, ind: int, collections: list
+) -> tuple([str, int, bool, bool]):
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)
     curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_YELLOW)
@@ -111,7 +118,8 @@ def main(stdscr, text: str, ind: int, collections: list)->tuple([str, int, bool,
 
     return text, ind, halt, backspace
 
-def lauf(coll: list)->tuple([str, int]):
+
+def lauf(coll: list) -> tuple([str, int]):
     text = ""
     ind2 = -1
     ind = 0
@@ -130,19 +138,23 @@ def lauf(coll: list)->tuple([str, int]):
 
     return text, ind2
 
-def start()->None:
+
+def start() -> None:
     if platform == "linux" or platform == "linux2":
         pass
     elif platform == "darwin":
         pass
         # raise("You must be using Linux to use the fuzzy finder (ASCII coloring not generally supported on OSX")
     elif platform == "win32":
-        raise("You must be on a Linux OS to use the fuzzy finder (ASCII coloring not generally supported on windows)")
+        raise (
+            "You must be on a Linux OS to use the fuzzy finder (ASCII coloring not generally supported on windows)"
+        )
     collections = allverbs()
     text, ind = lauf(collections)
     verb = str(fuzzyfinder(text, collections)[ind])
     print("You chose: " + verb)
     import cli_scripts
+
     # TODO: from Deutschconjugation import cli_scripts
     x = input("Type a pronoun here: ")
     y = cli_scripts.tensePreprocessing(input("Type the tense here: "))

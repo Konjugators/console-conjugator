@@ -26,7 +26,9 @@ setuptools.setup(
     ],
     python_requires=">=3.4",
     include_package_data=True,
-    entry_points={"console_scripts": 
-    ["konjugier=Deutschconjugation.cli_scripts:main",
-    ]},
+    entry_points={
+        "console_scripts": [
+            "konjugier=Deutschconjugation.cli_scripts:main",
+        ]
+    },
 )
