@@ -7,15 +7,10 @@
 Hallo!
 
 Have you ever had trouble conjugating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
-This project may be useful to you! We can help you conjugate almost all of the german standard verbs.
+This project may be useful to you! We can help you conjugate almost all of the german standard verbs. See Usage for more information on how to use this tool. 
 
-The following tenses are supported (im Deutsch):
-- present
-- simple-past
-- present-perfect
-- past-perfect
-- future
-- conditional (future II)
+## Development Progress
+French conjugation is underway, and will be added soon.
 
 To install and use this project, see this quick terminal video:
 [![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
@@ -23,26 +18,39 @@ To install and use this project, see this quick terminal video:
 # Install with pip
 On Linux:
 
-
 ```bash
-$ pip3 install -U console-conjugator
+$ pip3 install console-conjugator
 ```
 
 or Windows:
 
 ```cmd
-> pip install -U console-conjugator
+> pip install console-conjugator
 ```
 
 # Usage
 ### After installation, you can use the cli interface in most terminals and scripts
+
+The following tenses are supported (im Deutsch):
+- present
+- simple-past
+- present-perfect
+- past-perfect
+- future
+Coming Soon:
+- conditional (future II)
 
 Just give the argument "c" (for "command line") and conjugate away:
 ```bash
 $ konjugier c machen er present
 er macht
 ```
-To use the fuzzy finder, simply give the argument "f" (fuzzy finder) and be on your way:
+You can also create a table of conjugations:
+```bash
+konjugier a machen alles
+```
+Replace "alles" with a specific tense, if wanted: alles will result in tables for all tenses.
+To use the fuzzy finder, simply give the argument "f" (Not fully supported):
 ```bash
 $ konjugier f
 ```
@@ -55,12 +63,13 @@ You can also use the conjugation module in python scripts:
 >>> conjugator.conjugate("spielen", "er", "present-perfect")
 hat gespielt
 ```
-The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, ü, and ß (for german).
+The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, ü, and ß (for german) most of the time (full support added soon).
 
 # Progress
 ## Finished:
 ### - Deutsch -
 - [X] Create Deutsch Conjugation module
+- - [ ] Add Futur II support
 - [X] Create CLI interface
 - [X] Connect CLI with Deutsch Conjugation
 - [X] Fuzzy Finder for Deutsch
@@ -92,4 +101,4 @@ The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, 
 
 
 # Alternatives:
-See our Conjugation app (coming to Google Play Store) or our Java GUI application for different conjugating methods!
+See our Conjugation app (coming to Google Play Store) or our Java Swing application for different conjugating methods!
