@@ -1,5 +1,5 @@
 console-conjugator
-==================
+=====================
 
 |PyPI version| |license| |Documentation Status| |Downloads|
 
@@ -15,7 +15,7 @@ A commandline conjugation and translation interface written solely with standard
    :target: https://pepy.tech/project/console-conjugator
 
 Installation
-------------
+-----------------
 
 Use the Python Package Installer (PyPI):
 
