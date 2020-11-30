@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""
+This application conjugates the verbs of multiple languages
+Copyright (C) 2020 Konjugators
+See LICENSE for more information
+"""
 import argparse
 import sys
 

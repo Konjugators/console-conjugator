@@ -1,3 +1,9 @@
+"""
+This application conjugates the verbs of multiple languages
+Copyright (C) 2020 Shynn Lawrence, Govind Gnanakumar
+See LICENSE for more information
+"""
+
 # TODO: from Deutschconjugation import conjugator
 import conjugator
 import time
