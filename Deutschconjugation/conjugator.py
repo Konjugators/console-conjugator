@@ -1,7 +1,23 @@
+"""
+This application conjugates the verbs of multiple languages
+Copyright (C) 2020 Konjugators
+See LICENSE for more information
+"""
+
 # Load CSV when file is imported:
 if __name__ != "__main__":
     import csv
     import os
+    #ASCII colors:
+    colors = {
+    "Black" : "\u001b[30m",
+    "Red": "\u001b[31m",
+    "Green": "\u001b[32m",
+    "Yellow": "\u001b[33m",
+    "Blue": "\u001b[34m",
+    "Magenta": "\u001b[35m",
+    "Cyan": "\u001b[36m",
+    "White": "\u001b[37m"}
 
     global conjugations, infinitives, tense_conj
     # Conjugations as 2d List of all conjugations/tenses
@@ -52,6 +68,20 @@ def format(word: str)->str:
             val += 1
     return newwrt
 
+def colorize(text:str, tense)->str:
+    textlist = text.split(" ")
+    texts = text
+    print(len(textlist))
+    if len(textlist) == 2:
+        texts = colors["Green"] + textlist[0] + colors["Magenta"] + " " + textlist[1] + colors["White"]
+    if len(textlist) == 3 and (tense == "present" or tense == "simple-past"):
+        texts = colors["Green"] + textlist[0] + colors["Magenta"] + " " + textlist[1] \
+        + colors["Blue"] +" "+ textlist[2] + colors["White"]
+    elif len(textlist) == 3:
+        texts = colors["Green"] + textlist[0] + colors["Red"] + " " + textlist[1] \
+        + colors["Magenta"] +" "+ textlist[2] + colors["White"]
+    return texts
+
 # All tenses conjugation:
 def present(verb: str, pronoun: str)->str:
     temp = findLine(verb)
@@ -90,6 +120,7 @@ def conjugate(verb: str, pronoun="alles", tense="present", get_all=False)->str:
     }
 
     answer = str(tensemethods[tense](verb, pronoun)).strip()
+    answer = colorize(answer, tense)
     return answer
 
 def allesPronounsConjugate(verb, tense)->str:
@@ -106,7 +137,7 @@ def allesPronounsConjugate(verb, tense)->str:
     for z in range(len(temp)):
         if len(temp[z]) < greatest:
             temp[z] = temp[z] + " "*(greatest-len(temp[z]))
-            print(temp[z])
+            # print(temp[z])
 
     minus = lambda symbol: f"{symbol}"*greatest * 2 + f"{symbol}"*4 + f"{symbol}"*3 + f"{symbol}" * len("1st Person: ")
     temp_str = minus("_") + \
@@ -119,6 +150,8 @@ def allesPronounsConjugate(verb, tense)->str:
 
 def allesConjugate(verb, tenses)->str:
     fullText = ""
+    if tenses == "alles":
+        tenses = ["present", "simple-past", "present-perfect", "past-perfect", "future"]
     for tense in tenses:
         fullText += f"The {tense} tense:\n" + allesPronounsConjugate(verb, tense) + "\n"
     print(fullText)

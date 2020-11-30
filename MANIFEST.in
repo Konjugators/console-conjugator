@@ -1,2 +1,3 @@
 include README.md
 include Deutschconjugation/verbs.csv
+exclude docs/*
