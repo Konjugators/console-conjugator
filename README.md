@@ -3,8 +3,7 @@
 
 
 [![PyPi version](https://pypip.in/v/console-conjugator/badge.png)](https://crate.io/packages/$REPO/)
-[![PyPi downloads](https://pypip.in/d/console-conjugator/badge.png)](https://crate.io/packages/$REPO/)
-
+[![Downloads](https://pepy.tech/badge/console-conjugator)](https://pepy.tech/project/console-conjugator)
 
 ## About
 Hallo!
