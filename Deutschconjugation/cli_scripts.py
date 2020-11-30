@@ -5,7 +5,12 @@ Copyright (C) 2020 Konjugators
 See LICENSE for more information
 """
 import argparse
-import sys
+import platform
+
+def getColorAvailability():
+    if platform.system() not in ['Linux', 'Darwin']: colors = False
+    else: colors = True
+    return colors
 
 # Parse Args
 def get_args() -> str:
@@ -13,20 +18,22 @@ def get_args() -> str:
     parser.add_argument(
         "mode",
         nargs=1,
+        choices=["a", "c", "f"],
         help="The conjugation functions that can be performed (f -> fuzzy, c -> conjugate, a -> all). \
         Add the -h flag after selecting a mode to see in-depth help for each option",
     )
-    if "f" in sys.argv:
+    current_mode = vars(parser.parse_known_args()[0])['mode'];
+    if "f" in current_mode:
         parser.add_argument(
             "fuzzy",
             nargs="?",
             help="No arguments necessary, may not work on a Windows",
         )
-    elif "c" in sys.argv:
+    elif "c" in current_mode:
         parser.add_argument(
             "i", nargs=(3), help="Verb information; Follows format: verb pronoun tense"
         )
-    elif "a" in sys.argv:
+    elif "a" in current_mode:
         parser.add_argument(
             "i",
             nargs=(2),
@@ -34,7 +41,7 @@ def get_args() -> str:
             Follows format: verb tense",
         )
     else:
-        print(
+        raise argparse.ArgumentError(
             "You did not provide a proper mode (f, c, or a), please try again with one of such arguments"
         )
     args = parser.parse_args()
@@ -70,24 +77,14 @@ def modeVerstehen() -> str:
 
         infinitive, pronoun, tense = lower_format()
         tense = tensePreprocessing(tense)
-        z = conjugate(infinitive, pronoun, tense)
+        z = conjugate(infinitive, pronoun, tense, getColorAvailability())
         print(z)
     if args.mode[0] == "a":
         # TODO: from Deutschconjugation.conjugator import allesConjugate
         from conjugator import allConjugate
 
         args = get_args()
-        if args.i[1] == "alles" or args.i[1] == "a":
-            tenses = [
-                "present",
-                "simple-past",
-                "present-perfect",
-                "past-perfect",
-                "future",
-            ]
-            allConjugate(args.i[0], tenses)
-        else:
-            allConjugate(args.i[0], [args.i[1]])
+        allConjugate(args.i[0], [args.i[1]], getColorAvailability())
 
 
 # Lower_case the args
@@ -104,11 +101,5 @@ def lower_format() -> str:
 def main() -> str:
     modeVerstehen()
 
-
-if __name__ != "__main__":
-    import argparse
-
 if __name__ == "__main__":
-    import argparse
-
     main()
