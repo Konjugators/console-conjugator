@@ -33,10 +33,10 @@ prereqs() {
 
 main() {
 
-    echo "console-conjugator  Copyright (C) 2020  Shynn Lawrence, Aditya Matam, Govind Gnanakumar
-    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; type `show c' for details."
+#     echo "console-conjugator  Copyright (C) 2020 Govind Gnanakumar, Shynn Lawrence, Aditya Matam
+#     This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+#     This is free software, and you are welcome to redistribute it
+#     under certain conditions; type `show c' for details."
     
     prereqs
 
@@ -67,9 +67,11 @@ main() {
     
     if [ $? -ne 0 ]
     then
-        Installation failed.
+        echo 'Installation failed.'
+        exit 1
     else
         echo 'Installation complete.'
+        exit 0
     fi
 }
 

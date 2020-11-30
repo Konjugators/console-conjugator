@@ -5,8 +5,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="console-conjugator",
-    version="0.1.0",
-    author="Shynn Lawrence, Aditya Matam, Govind Gnanakumar",
+    version="0.1.2",
+    author="Shynn Lawrence, Govind Gnanakumar, Aditya Matam",
     author_email="shynn.lawrence@gmail.com",
     description="Versatile German command line conjugator",
     long_description=long_description,
