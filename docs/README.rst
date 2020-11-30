@@ -1,5 +1,5 @@
 console-conjugator
-=======
+==================
 
 |PyPI version| |license| |Documentation Status| |Downloads|
 
