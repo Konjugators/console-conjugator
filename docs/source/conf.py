@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Konjugators'
-copyright = '2020, Konjugators'
-author = 'Konjugators'
+project = 'console-conjugator'
+copyright = '2020, Govind Gnanakumar, Shynn Lawrence, Aditya Matam'
+author = 'Govind Gnanakumar, Shynn Lawrence, Aditya Matam'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.2'
@@ -47,7 +47,12 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+import mozilla_sphinx_theme
+import os
+
+html_theme_path = [os.path.dirname(mozilla_sphinx_theme.__file__)]
+
+html_theme = 'mozilla'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

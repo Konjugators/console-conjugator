@@ -20,17 +20,13 @@ On Linux:
 
 
 ```bash
-
-$ pip3 install console-conjugator
-
+$ pip3 install -U console-conjugator
 ```
 
 or Windows:
 
 ```cmd
-
-> pip install console-conjugator
-
+> pip install -U console-conjugator
 ```
 
 # Usage
@@ -91,4 +87,4 @@ The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, 
 
 
 # Alternatives:
-See our Conjugation app (coming to google play store) or our Java GUI application for different conjugating methods!
+See our Conjugation app (coming to Google Play Store) or our Java GUI application for different conjugating methods!
