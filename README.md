@@ -1,6 +1,11 @@
 # Console Conjugator
 
 
+
+[![PyPi version](https://pypip.in/v/console-conjugator/badge.png)](https://crate.io/packages/$REPO/)
+[![PyPi downloads](https://pypip.in/d/console-conjugator/badge.png)](https://crate.io/packages/$REPO/)
+
+
 ## About
 Hallo!
 

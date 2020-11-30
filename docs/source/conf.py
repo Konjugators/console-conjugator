@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Konjugators'
-copyright = '2020, Shynn Lawrence, Govind Gnanakumar, Aditya Matam'
-author = 'Shynn Lawrence, Govind Gnanakumar, Aditya Matam'
+copyright = '2020, Konjugators'
+author = 'Konjugators'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.2'
