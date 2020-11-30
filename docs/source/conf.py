@@ -14,12 +14,12 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-
+import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = "console-conjugator"
-copyright = "2020, Govind Gnanakumar, Shynn Lawrence, Aditya Matam"
-author = "Govind Gnanakumar, Shynn Lawrence, Aditya Matam"
+copyright = "2020, Shynn Lawrence, Govind Gnanakumar, Aditya Matam"
+author = "Shynn Lawrence, Govind Gnanakumar, Aditya Matam"
 
 # The full version, including alpha/beta/rc tags
 release = "0.1.2"
@@ -47,7 +47,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 
-html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
