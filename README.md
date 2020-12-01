@@ -12,10 +12,11 @@ This project may be useful to you! We can help you conjugate almost all of the g
 ## Development Progress
 French conjugation is underway, and will be added soon.
 
+# Installation
 To install and use this project, see this quick terminal video:
 [![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
-# Install with pip
+## Install with pip
 On Linux:
 
 ```bash
@@ -27,6 +28,12 @@ or Windows:
 ```cmd
 > pip install console-conjugator
 ```
+## Install with the install script from this repository
+```bash
+sudo chmod +x install
+./install
+```
+
 
 # Usage
 ### After installation, you can use the cli interface in most terminals and scripts
