@@ -1,6 +1,6 @@
 # Console Conjugator
 
-[![PyPi version](https://pypip.in/v/console-conjugator/badge.png)](https://crate.io/packages/$REPO/)
+[![PyPi version](https://pypip.in/v/console-conjugator/badge.png)](https://pypi.org/project/console-conjugator/)
 [![Downloads](https://static.pepy.tech/personalized-badge/console-conjugator?period=total&units=international_system&left_color=brightgreen&right_color=yellow&left_text=PyPi%20Downloads)](https://pepy.tech/project/console-conjugator)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ## About
