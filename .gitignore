@@ -11,23 +11,3 @@
 *.so
 
 /docs/build/**
-docs/build/doctrees/environment.pickle
-docs/build/doctrees/index.doctree
-docs/build/html/.buildinfo
-docs/build/html/genindex.html
-docs/build/html/index.html
-docs/build/html/objects.inv
-docs/build/html/search.html
-docs/build/html/searchindex.js
-docs/build/html/_sources/index.rst.txt
-docs/build/html/_static/alabaster.css
-docs/build/html/_static/custom.css
-docs/build/html/_static/mozilla.css
-docs/build/html/_static/pygments.css
-docs/build/html/_static/fonts/OpenSans-Light-webfont.ttf
-docs/build/html/_static/fonts/OpenSans-Light.ttf
-docs/build/html/_static/fonts/OpenSans-Regular-webfont.ttf
-docs/build/html/_static/fonts/OpenSans-Regular.ttf
-docs/build/html/_static/images/bg-gradient-sand.png
-docs/build/html/_static/images/bg-sand.png
-docs/build/html/_static/images/divider.png

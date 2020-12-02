@@ -6,8 +6,8 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   .. tui
-   .. api
+   tui
+   api
 
 
 Indices and tables
