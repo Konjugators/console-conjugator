@@ -6,6 +6,7 @@ See LICENSE for more information
 import csv
 import os
 import platform
+
 # Load CSV when file is imported:
 if __name__ != "__main__":
     # ASCII colors:
@@ -157,7 +158,7 @@ def conjugate(verb: str, pronoun="alles", tense="present", color=False) -> str:
     return answer
 
 
-def allPronounsConjugate(verb, tense, ANSI = False) -> str:
+def allPronounsConjugate(verb, tense, ANSI=False) -> str:
     conj = conjugate
     temp = []
     temp2 = []
@@ -172,8 +173,6 @@ def allPronounsConjugate(verb, tense, ANSI = False) -> str:
     for val in temp2:
         if len(val) > greatest:
             greatest = len(val)
-
-    
 
     for z in range(len(temp)):
         if len(temp2[z]) < greatest:
@@ -198,12 +197,14 @@ def allPronounsConjugate(verb, tense, ANSI = False) -> str:
     return temp_str
 
 
-def allConjugate(verb, tenses, colors = False) -> str:
+def allConjugate(verb, tenses, colors=False) -> str:
     fullText = ""
 
     if tenses[0].lower() == "alles" or tenses[0].lower() == "a":
         tenses = ["present", "simple-past", "present-perfect", "past-perfect", "future"]
 
     for tense in tenses:
-        fullText += f"The {tense} tense:\n" + allPronounsConjugate(verb, tense, colors) + "\n"
+        fullText += (
+            f"The {tense} tense:\n" + allPronounsConjugate(verb, tense, colors) + "\n"
+        )
     print(fullText)

@@ -10,10 +10,14 @@ from Deutschconjugation import conjugator
 from Deutschconjugation import fuzzy
 from Deutschconjugation import version
 
-def getColorAvailability()->bool:
-    if platform.system() not in ['Linux', 'Darwin']: colors = False
-    else: colors = True
+
+def getColorAvailability() -> bool:
+    if platform.system() not in ["Linux", "Darwin"]:
+        colors = False
+    else:
+        colors = True
     return colors
+
 
 # Parse Args
 def get_args() -> str:
@@ -24,7 +28,7 @@ def get_args() -> str:
         choices=["a", "c", "f", "v"],
         help="The conjugation functions that can be performed (f -> fuzzy, c -> conjugate, a -> all).",
     )
-    current_mode = vars(parser.parse_known_args()[0])['mode'];
+    current_mode = vars(parser.parse_known_args()[0])["mode"]
     if "f" in current_mode:
         parser.add_argument(
             "fuzzy",
@@ -33,22 +37,32 @@ def get_args() -> str:
         )
     elif "c" in current_mode:
         parser.add_argument(
-            "infinitive", nargs=(1), help="infinitive: The infinitive of the verb.",
+            "infinitive",
+            nargs=(1),
+            help="infinitive: The infinitive of the verb.",
         )
         parser.add_argument(
-            "pronoun", nargs=1, help="pronoun: The pronoun to be conjugated for. 'es' is not \
+            "pronoun",
+            nargs=1,
+            help="pronoun: The pronoun to be conjugated for. 'es' is not \
                 currently supported (use 'er' instead).",
         )
         parser.add_argument(
-            "tense", nargs=1, help="tense: The tense to be conjugated for. Only indikativ tenses, \
+            "tense",
+            nargs=1,
+            help="tense: The tense to be conjugated for. Only indikativ tenses, \
             not including Futur II or Imperative (to be added soon)",
         )
     elif "a" in current_mode:
         parser.add_argument(
-            "infinitive", nargs=(1), help="infinitive: The infinitive of the verb.",
+            "infinitive",
+            nargs=(1),
+            help="infinitive: The infinitive of the verb.",
         )
         parser.add_argument(
-            "tense", nargs=1, help="tense: The tense to be conjugated for. Use 'alles' to print \
+            "tense",
+            nargs=1,
+            help="tense: The tense to be conjugated for. Use 'alles' to print \
             charts for every tense",
         )
     elif "v" in current_mode:
@@ -89,7 +103,9 @@ def modeSelection() -> str:
         print(z)
     if args.mode[0] == "a":
         args = get_args()
-        conjugator.allConjugate(args.infinitive[0], [args.tense[0]], getColorAvailability())
+        conjugator.allConjugate(
+            args.infinitive[0], [args.tense[0]], getColorAvailability()
+        )
 
 
 # Lower_case the args
@@ -101,6 +117,7 @@ def lower_format() -> str:
 # Conjugate and print args
 def main() -> str:
     modeSelection()
+
 
 if __name__ == "__main__":
     main()

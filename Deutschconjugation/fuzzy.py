@@ -47,7 +47,9 @@ def clearbreak(stdscr) -> None:
     return 1
 
 
-def main(stdscr, text: str, ind: int, collections: list) -> tuple([str, int, bool, bool]):
+def main(
+    stdscr, text: str, ind: int, collections: list
+) -> tuple([str, int, bool, bool]):
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
     curses.init_pair(4, curses.COLOR_CYAN, curses.COLOR_BLACK)
     curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_YELLOW)
