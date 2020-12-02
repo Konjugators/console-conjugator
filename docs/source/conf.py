@@ -60,6 +60,12 @@ html_sidebars = {
         'searchbox.html',
         'donate.html',
     ]
+
+html_theme_options = {
+    "description": "A simple command line conjugation tool",
+    "github_user": "Konjugators",
+    "github_repo": "console-conjugator",
+    "fixed_sidebar": True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
