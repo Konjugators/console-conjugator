@@ -7,7 +7,7 @@ Contents
    :maxdepth: 2
 
    tui
-   api
+   about
 
 
 Indices and tables
