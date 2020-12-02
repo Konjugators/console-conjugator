@@ -3,6 +3,8 @@ import subprocess
 import os, sys
 
 z = os.path.join(os.getcwd())
+
+# Be able to access Deutschconjugation module locally
 sys.path.insert(1, z)
 
 from Deutschconjugation.conjugator import conjugate
