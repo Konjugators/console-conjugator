@@ -51,8 +51,8 @@ html_theme = "alabaster"
 
 html_sidebars = {
     '**': [
-        'index.html',
-        'about.html',
+        '/src/index.rst',
+        '/src/about.rst',
     ]
 }
 
