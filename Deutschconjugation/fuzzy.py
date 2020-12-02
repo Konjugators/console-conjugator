@@ -5,10 +5,11 @@ See LICENSE for more information
 """
 
 # TODO: 
-# from . import conjugator
-# from . import cli_scripts
+# from Deutschconjugation import conjugator
+# from Deutschconjugation import cli_scripts
 
 import conjugator
+import cli_scripts
 import time
 import curses
 import os
@@ -152,9 +153,9 @@ def start() -> None:
         raise OSError(
             "You must be on a Linux OS to use the fuzzy finder (ASCII coloring not generally supported on windows)"
         )
-    collections = allverbs()
-    text, ind = lauf(collections)
-    verb = str(fuzzyfinder(text, collections)[ind])
+    verbsCollections = allverbs()
+    text, ind = lauf(verbsCollections)
+    verb = str(fuzzyfinder(text, verbsCollections)[ind])
     print("You chose: " + verb)
 
     x = input("Type a pronoun here: ")
