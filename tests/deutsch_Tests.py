@@ -9,29 +9,30 @@ from Deutschconjugation.conjugator import conjugate
 
 
 class TestSum(unittest.TestCase):
-
-    # Using self-created methods instead of builtin
-
-    # @staticmethod
-    # def assertEqual(statement1, statement2)->None:
-    #     assert statement1 == statement2, f"{statement1} was not found to be equivalent to {statement2}"
-
-    # @staticmethod
-    # def assertNotEqual(statement1, statement2)->None:
-    #     assert statement1 == statement2, f"{statement1} was incorrectly found to be equivalent to {statement2}"
-
-    def testNormalVerbs(self):
+    def testErPresentVerbs(self):
         verb_cases = {
             "machen": "er macht",
             "fahren": "er fährt",
             "spielen": "er spielt",
             "putzen": "er putzt",
             "haben": "er hat",
-            # "sehen":"era"
         }
 
         for string in verb_cases.keys():
             conjugationResult = conjugate(str.strip(string), "er", "present")
+            self.assertEqual(str.strip(verb_cases[string]), conjugationResult)
+
+    def testIchPresentVerbs(self):
+        verb_cases = {
+            "machen": "ich mache",
+            "fahren": "ich fahre",
+            "spielen": "ich spiele",
+            "putzen": "ich putze",
+            "haben": "ich habe",
+        }
+
+        for string in verb_cases.keys():
+            conjugationResult = conjugate(str.strip(string), "ich", "present")
             self.assertEqual(str.strip(verb_cases[string]), conjugationResult)
 
 

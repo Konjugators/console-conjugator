@@ -152,8 +152,8 @@ def conjugate(verb: str, pronoun="alles", tense="present", color=False) -> str:
         "future": future,
     }
     answer = str(tensemethods[tense](verb, pronoun)).strip()
-    # if color:
-        # answer = colorize(answer, tense)
+    if color:
+        answer = colorize(answer, tense)
     return answer
 
 
