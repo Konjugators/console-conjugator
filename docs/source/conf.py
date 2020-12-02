@@ -54,8 +54,11 @@ exclude_patterns = []
 
 html_sidebars = {
     '**': [
-        'index.rst',
-        'about.rst',
+        'about.html',
+        'navigation.html',
+        'relations.html',
+        'searchbox.html',
+        'donate.html',
     ]
 }
 
