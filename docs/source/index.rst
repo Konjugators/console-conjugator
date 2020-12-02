@@ -16,7 +16,7 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-* :ref: `tui`
+* :ref:`tui`
 
 
 Test
