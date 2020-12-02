@@ -15,6 +15,12 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 import sphinx_rtd_theme
+import alabaster
+
+html_theme_path = [alabaster.get_path()]
+extensions = ['alabaster']
+html_theme = 'alabaster'
+
 # -- Project information -----------------------------------------------------
 
 project = "console-conjugator"
@@ -45,9 +51,6 @@ exclude_patterns = []
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-
-html_theme = "alabaster"
 
 html_sidebars = {
     '**': [
