@@ -6,13 +6,9 @@ See LICENSE for more information
 """
 import argparse
 import platform
-# TODO:
-# from . import conjugator
-# from . import fuzzy
-# from . import version
-import version
-import conjugator
-import fuzzy
+from Deutschconjugation import conjugator
+from Deutschconjugation import fuzzy
+from Deutschconjugation import version
 
 def getColorAvailability()->bool:
     if platform.system() not in ['Linux', 'Darwin']: colors = False

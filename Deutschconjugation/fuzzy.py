@@ -4,12 +4,9 @@ Copyright (C) 2020 Shynn Lawrence, Govind Gnanakumar
 See LICENSE for more information
 """
 
-# TODO: 
-# from Deutschconjugation import conjugator
-# from Deutschconjugation import cli_scripts
+from Deutschconjugation import conjugator
+from Deutschconjugation import cli_scripts
 
-import conjugator
-import cli_scripts
 import time
 import curses
 import os
