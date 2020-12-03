@@ -13,12 +13,3 @@ A commandline conjugation and translation interface written solely with standard
    :target: https://console-conjugator.readthedocs.io/en/latest/?badge=latest
 .. |Downloads| image:: https://pepy.tech/badge/console-conjugator
    :target: https://pepy.tech/project/console-conjugator
-
-Installation
------------------
-
-Use the Python Package Installer (PyPI):
-
-.. code:: sh
-
-    $ pip3 install -U console-conjugator
