@@ -19,11 +19,6 @@ master_doc = "index"
 
 
 import sphinx_rtd_theme
-import alabaster
-
-html_theme_path = [alabaster.get_path()]
-extensions = ['alabaster']
-html_theme = 'alabaster'
 
 # -- Project information -----------------------------------------------------
 
@@ -32,7 +27,7 @@ copyright = "2020, Shynn Lawrence, Govind Gnanakumar, Aditya Matam"
 author = "Shynn Lawrence, Govind Gnanakumar, Aditya Matam"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.2"
+release = "0.1.3"
 
 
 # -- General configuration ---------------------------------------------------
@@ -55,22 +50,6 @@ exclude_patterns = []
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'relations.html',
-        'searchbox.html',
-        'donate.html',
-    ]
-
-html_theme_options = {
-    "description": "A simple command line conjugation tool",
-    "github_user": "Konjugators",
-    "github_repo": "console-conjugator",
-    "fixed_sidebar": True,
-}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
