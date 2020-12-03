@@ -1,7 +1,7 @@
 .. include:: ../README.rst
 
 Projekt Konjugators
-===================
+*******************
 Test
 Projekt Conjugators is an effort to systematically, from a dataset, conjugate verbs in the german language.
 The PyPi project associated with this project, console-conjugator, is quite diverse. As such, these sets of 
