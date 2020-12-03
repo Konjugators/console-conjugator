@@ -13,6 +13,7 @@ Installation
 Use the Python Package Installer (PyPI):
 
 .. code:: sh
+
     $ pip3 install -U console-conjugator
 
 
@@ -22,7 +23,7 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   index
+
    tui
    about
 
