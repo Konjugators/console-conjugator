@@ -1,5 +1,5 @@
 about
-=====
+*****
 
 Projekt Konjugators is run by:
 - Shynn Lawrence
