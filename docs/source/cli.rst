@@ -1,5 +1,5 @@
-Terminal Interface
-******************
+Command Line Interface
+**********************
 
 
 The cli script is called `konjugier` and comes with the pip installation.

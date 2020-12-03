@@ -24,7 +24,8 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   tui
+   index
+   cli
    about
 
 Indices and tables
@@ -33,4 +34,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-* :doc:`tui`
+* :doc:`cli`
