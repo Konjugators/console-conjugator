@@ -32,6 +32,7 @@ sudo chmod +x install
 ```
 
 Installation Video and Demo:
+
 [![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
 
