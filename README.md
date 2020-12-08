@@ -11,8 +11,6 @@ This project may be useful to you! We can help you conjugate almost all of the g
 
 
 # Installation
-To install and use this project, see this quick terminal video:
-[![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
 ## Install with pip
 On Linux:
@@ -22,15 +20,19 @@ $ pip3 install console-conjugator
 ```
 
 or Windows:
-
 ```cmd
 > pip install console-conjugator
 ```
-## Install with the install script from this repository
+
+## Install with install script
 ```bash
+git clone https://github.com/Konjugators/console-conjugator.git && cd console-conjugator
 sudo chmod +x install
 ./install
 ```
+
+Installation Video and Demo:
+[![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
 
 # Usage
