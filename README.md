@@ -24,14 +24,14 @@ or Windows:
 > pip install console-conjugator
 ```
 
-## Install with install script
+## Install Script
 ```bash
 git clone https://github.com/Konjugators/console-conjugator.git && cd console-conjugator/bin
 sudo chmod +x install
 ./install
 ```
 
-#### Installation Video and Demo:
+#### Installation Video and Demo
 
 [![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
