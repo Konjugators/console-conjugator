@@ -26,12 +26,12 @@ or Windows:
 
 ## Install with install script
 ```bash
-git clone https://github.com/Konjugators/console-conjugator.git && cd console-conjugator
+git clone https://github.com/Konjugators/console-conjugator.git && cd console-conjugator/bin
 sudo chmod +x install
 ./install
 ```
 
-Installation Video and Demo:
+#### Installation Video and Demo:
 
 [![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
