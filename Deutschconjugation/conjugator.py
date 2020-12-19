@@ -48,7 +48,7 @@ def findIndex(verb: str) -> str:
     return infinitives.index(verb)
 
 
-def line(row: int) -> str:
+def line(row:  int) -> str:
     assert row != -1
     return conjugations[row]
 

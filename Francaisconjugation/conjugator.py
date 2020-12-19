@@ -73,7 +73,7 @@ def conjugate(infinitive:str, pronoun:str, tense:str)->str:
     return z
 
 
-
+# DONT DELETE
 """
 ['infinitive',
  'past participle',
