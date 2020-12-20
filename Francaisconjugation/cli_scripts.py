@@ -1,9 +1,11 @@
 import argparse
 import platform
-import conjugator
+from Francaisconjugation import conjugator as conj
+
 
 def getColorAvailability() -> bool:
     return platform.system() in ("Linux", "Darwin")
+
 
 def get_args() -> str:
     parser = argparse.ArgumentParser()
@@ -16,5 +18,6 @@ def get_args() -> str:
     args = parser.parse_args()
     return args
 
+
 def main():
-    pass #TODO add cli
+    pass  # TODO add cli

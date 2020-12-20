@@ -31,11 +31,11 @@ if __name__ != "__main__" or __name__ == "__main__":
     }
 
     tenses = {
-    "present": 3,
-    "imperfect": 9,
-    "simple-past": 15,
-    "future": 21,
-    "conditional": 27
+        "present": 3,
+        "imperfect": 9,
+        "simple-past": 15,
+        "future": 21,
+        "conditional": 27,
     }
 
     this_dir, this_filename = os.path.split(__file__)
@@ -46,26 +46,40 @@ if __name__ != "__main__" or __name__ == "__main__":
             conjugations.append(row)
             infinitives.append(row[0])
 
+
 def findIndex(verb: str) -> str:
     assert len(verb) > 0
     return infinitives.index(verb)
 
-def conjugate(infinitive:str, pronoun:str, tense:str, color:bool=False)->str:
+
+def processTense(tense: str) -> str:
+    if tense in tenses.keys():
+        return tense
+    if "condition" in tense:
+        return "conditional"
+    if tense == "imparfait":
+        return "imperfect"
+    if tense in ("past-simple", "passe-simple"):
+        return "simple-past"
+    if tense == "futur":
+        return "future"
+    return "present"
+
+
+def conjugate(infinitive: str, pronoun: str, tense: str, color: bool = False) -> str:
     # ["present", "past", "simple-past", "future", "imperfect", "conditional"]
+    tense = processTense(tense)
     row = conjugations[findIndex(infinitive)]
-    z = f""
-    idx = 0
     if tense == "past":
         if "avoir" in row:
             helper = "avoir"
         else:
             helper = "être"
-        z = f"{pronoun} {conjugate(helper, pronoun, 'present')} {row[1]}"
+        out = f"{pronoun} {conjugate(helper, pronoun, 'present')} {row[1]}"
     else:
-        idx += tenses[tense]
-        idx += pronouns[pronoun]
-        z = f"{pronoun} {row[idx]}"
-    return z
+        idx = tenses[tense] + pronouns[pronoun]
+        out = f"{pronoun} {row[idx]}"
+    return out
 
 
 # DONT DELETE
