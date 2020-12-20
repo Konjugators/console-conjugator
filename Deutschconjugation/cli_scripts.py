@@ -74,23 +74,6 @@ def get_args() -> str:
     args = parser.parse_args()
     return args
 
-
-# Change words in german to english, so that the conjugation process works properly
-def tensePreprocessing(tense: str) -> str:
-    if tense in ["präsens"]:
-        return "present"
-    if tense in ["simplepast", "präteritum", "prateritum"]:
-        return "simple-past"
-    if tense in ["presentperfect", "perfekt"]:
-        return "present-perfect"
-    if tense in ["plusquamperfect", "pastperfect", "pastPerfect"]:
-        return "past-perfect"
-    if tense in ["zukunft"]:
-        return "future"
-    else:
-        return tense
-
-
 # Literally translates to "Mode understanding - c and f are the mode arguments"
 def modeSelection() -> str:
     args = get_args()
@@ -98,7 +81,6 @@ def modeSelection() -> str:
         fuzzy.start()
     if args.mode[0] == "c":
         infinitive, pronoun, tense = lower_format()
-        tense = tensePreprocessing(tense)
         z = conjugator.conjugate(infinitive, pronoun, tense, getColorAvailability())
         print(z)
     if args.mode[0] == "a":

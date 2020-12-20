@@ -6,6 +6,7 @@ See LICENSE for more information
 import csv
 import os
 import platform
+import re
 
 # Load CSV when file is imported:
 if __name__ != "__main__":
@@ -30,7 +31,7 @@ if __name__ != "__main__":
     tense_conj = {"ich": 1, "du": 2, "er": 3, "wir": 4, "ihr": 5, "sie": 6}
 
     this_dir, this_filename = os.path.split(__file__)
-    path = os.path.join(this_dir, "verbs.csv")
+    path = os.path.join(this_dir, "germanverbs.csv")
     with open(path, "r", newline="", encoding="utf-8") as file:
         verblist = csv.reader(file)
         for row in verblist:
@@ -56,24 +57,28 @@ def line(row:  int) -> str:
 def findLine(verb: str) -> str:
     return line(findIndex(verb))
 
+# Change words in german to english, so that the conjugation process works properly
+def tensePreprocessing(tense: str) -> str:
+    if tense in ["präsens"]:
+        return "present"
+    if tense in ["simplepast", "präteritum", "prateritum"]:
+        return "simple-past"
+    if tense in ["presentperfect", "perfekt"]:
+        return "present-perfect"
+    if tense in ["plusquamperfect", "pastperfect", "pastPerfect"]:
+        return "past-perfect"
+    if tense in ["zukunft"]:
+        return "future"
+    else:
+        return tense
 
 # Formatting for those without german keyboard
 def format(word: str) -> str:
-    if "^" not in word:
-        return word
-    z = 0
-    val = 0
-    newwrt = ""
-    conv = {"a": "ä", "o": "ö", "u": "ü", "s": "ß"}
-    convlist = ["a", "o", "u", "s"]
-    while val <= len(word) - 1:
-        if word[val] in convlist and word[val + 1] == "^":
-            newwrt += conv[word[val]]
-            val += 2
-        else:
-            newwrt += word[val]
-            val += 1
-    return newwrt
+    newwrt = re.sub("a\^", "ä", word)
+    newwrt = re.sub("o\^", "ö", newwrt)
+    newwrt = re.sub("u\^", "ü", newwrt)
+    newwrt = re.sub("s^", "ß", newwrt)
+    return newwrt.lower()
 
 
 def colorize(text: str, tense) -> str:
@@ -144,7 +149,7 @@ def future(verb: str, pronoun: str) -> str:
 # Header conjugate: Branches to different methods
 def conjugate(verb: str, pronoun="alles", tense="present", color=False) -> str:
     verb = format(verb)
-
+    tense = tensePreprocessing(tense)
     tensemethods = {
         "present": present,
         "simple-past": simplepast,
@@ -152,6 +157,7 @@ def conjugate(verb: str, pronoun="alles", tense="present", color=False) -> str:
         "past-perfect": pastperfect,
         "future": future,
     }
+
     answer = str(tensemethods[tense](verb, pronoun)).strip()
     if color:
         answer = colorize(answer, tense)

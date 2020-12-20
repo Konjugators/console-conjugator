@@ -18,7 +18,7 @@ from sys import platform
 def allverbs() -> list:
     infinitives = []
     this_dir, this_filename = os.path.split(__file__)
-    path = os.path.join(this_dir, "verbs.csv")
+    path = os.path.join(this_dir, "germanverbs.csv")
     with open(path, "r", newline="") as file:
         verblist = csv.reader(file)
         for row in verblist:
@@ -156,5 +156,5 @@ def start() -> None:
     print("You chose: " + verb)
 
     x = input("Type a pronoun here: ")
-    y = cli_scripts.tensePreprocessing(input("Type the tense here: "))
+    y = input("Type the tense here: ")
     print(conjugator.conjugate(verb, x, y))

@@ -39,7 +39,7 @@ if __name__ != "__main__" or __name__ == "__main__":
     }
 
     this_dir, this_filename = os.path.split(__file__)
-    path = os.path.join(this_dir, "verbs.csv")
+    path = os.path.join(this_dir, "frenchverbs.csv")
     with open(path, "r", newline="", encoding="utf-8") as file:
         verblist = csv.reader(file)
         for row in verblist:
@@ -50,12 +50,7 @@ def findIndex(verb: str) -> str:
     assert len(verb) > 0
     return infinitives.index(verb)
 
-# def pastConjugate(verbrow):
-#     if "avoir" in verbrow[2]: return f"{pronoun} {conjugate("")} {row[1]}"
-#     else
-
-
-def conjugate(infinitive:str, pronoun:str, tense:str)->str:
+def conjugate(infinitive:str, pronoun:str, tense:str, color:bool=False)->str:
     # ["present", "past", "simple-past", "future", "imperfect", "conditional"]
     row = conjugations[findIndex(infinitive)]
     z = f""
