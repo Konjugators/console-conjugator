@@ -13,8 +13,9 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+templates_path = ["_templates"]
+source_suffix = ".rst"
 
-import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = "console-conjugator"
@@ -22,7 +23,7 @@ copyright = "2020, Shynn Lawrence, Govind Gnanakumar, Aditya Matam"
 author = "Shynn Lawrence, Govind Gnanakumar, Aditya Matam"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.2"
+release = "0.1.3"
 
 
 # -- General configuration ---------------------------------------------------
@@ -45,11 +46,8 @@ exclude_patterns = []
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-
-html_theme = "sphinx_rtd_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+# html_static_path = ["_static"]

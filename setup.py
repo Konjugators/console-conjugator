@@ -32,6 +32,7 @@ setuptools.setup(
     entry_points={
         "console_scripts": [
             "konjugier=Deutschconjugation.cli_scripts:main",
+            "conjuguer=Francaisconjugation.cli_scripts:main"
         ]
     },
 )

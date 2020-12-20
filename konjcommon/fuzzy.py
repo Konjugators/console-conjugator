@@ -4,11 +4,9 @@ Copyright (C) 2020 Shynn Lawrence, Govind Gnanakumar
 See LICENSE for more information
 """
 
-# TODO: 
-# from . import conjugator
-# from . import cli_scripts
+from Deutschconjugation import conjugator
+from Deutschconjugation import cli_scripts
 
-import conjugator
 import time
 import curses
 import os
@@ -20,7 +18,7 @@ from sys import platform
 def allverbs() -> list:
     infinitives = []
     this_dir, this_filename = os.path.split(__file__)
-    path = os.path.join(this_dir, "verbs.csv")
+    path = os.path.join(this_dir, "germanverbs.csv")
     with open(path, "r", newline="") as file:
         verblist = csv.reader(file)
         for row in verblist:
@@ -152,11 +150,11 @@ def start() -> None:
         raise OSError(
             "You must be on a Linux OS to use the fuzzy finder (ASCII coloring not generally supported on windows)"
         )
-    collections = allverbs()
-    text, ind = lauf(collections)
-    verb = str(fuzzyfinder(text, collections)[ind])
+    verbsCollections = allverbs()
+    text, ind = lauf(verbsCollections)
+    verb = str(fuzzyfinder(text, verbsCollections)[ind])
     print("You chose: " + verb)
 
     x = input("Type a pronoun here: ")
-    y = cli_scripts.tensePreprocessing(input("Type the tense here: "))
+    y = input("Type the tense here: ")
     print(conjugator.conjugate(verb, x, y))

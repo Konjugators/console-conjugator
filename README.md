@@ -9,12 +9,8 @@ Hallo!
 Have you ever had trouble conjugating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
 This project may be useful to you! We can help you conjugate almost all of the german standard verbs. See Usage for more information on how to use this tool. 
 
-## Development Progress
-French conjugation is underway, and will be added soon.
 
 # Installation
-To install and use this project, see this quick terminal video:
-[![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
 ## Install with pip
 On Linux:
@@ -24,15 +20,20 @@ $ pip3 install console-conjugator
 ```
 
 or Windows:
-
 ```cmd
 > pip install console-conjugator
 ```
-## Install with the install script from this repository
+
+## Install Script
 ```bash
+git clone https://github.com/Konjugators/console-conjugator.git && cd console-conjugator/bin
 sudo chmod +x install
 ./install
 ```
+
+#### Installation Video and Demo
+
+[![asciicast](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g.svg)](https://asciinema.org/a/Utrqg35SNAcpJcVunii67ZN2g)
 
 
 # Usage
@@ -73,6 +74,10 @@ hat gespielt
 The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, ü, and ß (for german) most of the time (full support added soon).
 
 # Progress
+
+## Development Progress
+French conjugation is underway, and will be added soon.
+
 ## Finished:
 ### - Deutsch -
 - [X] Create Deutsch Conjugation module

@@ -1,10 +1,11 @@
-Terminal Interface
-===========================
+Command Line Interface
+**********************
 
 
 The cli script is called `konjugier` and comes with the pip installation.
 
-:flags 
+flags
+-----
 
 Passing the flag "c" to `konjugier` allows you to get the conjugated info:
 
