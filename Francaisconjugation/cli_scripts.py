@@ -16,9 +16,7 @@ def get_args():
 
 # Change words in german to english, so that the conjugation process works properly
 def tensePreprocessing(tense: str) -> str:
-    if tense in ["präsens"]:
-        return "present"
-    if tense in ["simplepast", "präteritum", "prateritum"]:
+    if tense in ["past", "passecompose", "passesimple"]:
         return "simple-past"
     if tense in ["presentperfect", "perfekt"]:
         return "present-perfect"
@@ -34,16 +32,15 @@ def tensePreprocessing(tense: str) -> str:
 def modeParse():
     args = get_args()
     if args.mode[0] == "f":
-        from Deutschconjugation import fuzzy
-
-        fuzzy.start()
+        pass
+        # from Deutschconjugation import fuzzy
+        # fuzzy.start()
     if args.mode[0] == "c":
-        from Deutschconjugation import conjugator as conj
+        import conjugator as conj
 
         infinitive, pronoun, tense = lower_format()
-        tense = tensePreprocessing(tense)
-        z = conj.conjugate(infinitive, pronoun, tense)
-        print(z)
+        conjugatedVerb = conj.conjugate(infinitive, pronoun, tense)
+        print(conjugatedVerb)
 
 
 # Lower_case the args
@@ -51,7 +48,6 @@ def lower_format():
     args = get_args()
     if len(args.i) < 3:
         raise ("You are missing a few things")
-        print("error")
     if len(args.i) > 3:
         raise ("You have too many things")
     return args.i[0].lower(), args.i[1].lower(), args.i[2].lower()
@@ -62,11 +58,5 @@ def lower_format():
 def main():
     modeParse()
 
-
-if __name__ != "__main__":
-    import argparse
-
-if __name__ == "__main__":
-    import argparse
 
 # TODO Table
