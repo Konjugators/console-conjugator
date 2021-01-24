@@ -23,7 +23,6 @@ if __name__ != "__main__":
         "Reset": "\u001b[0m",
     }
 
-    global conjugations, infinitives, tense_conj
     # Conjugations as 2d List of all conjugations/tenses
     # Infinitives as just the infinitive forms of all verbs -> Faster indexing
     conjugations, infinitives = [], []
@@ -31,7 +30,7 @@ if __name__ != "__main__":
     tense_conj = {"ich": 1, "du": 2, "er": 3, "wir": 4, "ihr": 5, "sie": 6}
 
     this_dir, this_filename = os.path.split(__file__)
-    path = os.path.join(this_dir, "germanverbs.csv")
+    path = os.path.join(this_dir, "../res/germanverbs.csv")
     with open(path, "r", newline="", encoding="utf-8") as file:
         verblist = csv.reader(file)
         for row in verblist:
@@ -44,12 +43,12 @@ if __name__ != "__main__":
                 print("Error at this row: ", row)
 
 # CSV indexing and searching methods
-def findIndex(verb: str) -> str:
+def findIndex(verb: str) -> int:
     assert len(verb) > 0
     return infinitives.index(verb)
 
 
-def line(row:  int) -> str:
+def line(row:  int):
     assert row != -1
     return conjugations[row]
 
@@ -77,7 +76,7 @@ def format(word: str) -> str:
     newwrt = re.sub("a\^", "ä", word)
     newwrt = re.sub("o\^", "ö", newwrt)
     newwrt = re.sub("u\^", "ü", newwrt)
-    newwrt = re.sub("s^", "ß", newwrt)
+    newwrt = re.sub("s\^", "ß", newwrt)
     return newwrt.lower()
 
 

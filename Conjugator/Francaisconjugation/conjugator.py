@@ -24,10 +24,13 @@ if __name__ != "__main__" or __name__ == "__main__":
     pronouns = {
         "je": 0,
         "tu": 1,
+        "il": 2,
+        "elle": 2,
         "on": 2,
         "nous": 3,
         "vous": 4,
         "ils": 5,
+        "elles": 5,
     }
 
     tenses = {
@@ -39,7 +42,7 @@ if __name__ != "__main__" or __name__ == "__main__":
     }
 
     this_dir, this_filename = os.path.split(__file__)
-    path = os.path.join(this_dir, "frenchverbs.csv")
+    path = os.path.join(this_dir, "../res/frenchverbs.csv")
     with open(path, "r", newline="", encoding="utf-8") as file:
         verblist = csv.reader(file)
         for row in verblist:
@@ -79,6 +82,8 @@ def conjugate(infinitive: str, pronoun: str, tense: str, color: bool = False) ->
     else:
         idx = tenses[tense] + pronouns[pronoun]
         out = f"{pronoun} {row[idx]}"
+
+
     return out
 
 
