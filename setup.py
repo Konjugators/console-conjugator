@@ -21,9 +21,11 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Natural Language :: German",
+        "Natural Language :: French",
+        "Environment :: Console :: Curses",
         "Topic :: Education", 
         "Environment :: Console",
     ],
@@ -31,7 +33,7 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "konjugier=Deutschconjugation.cli_scripts:main",
+            "konjugier=Conjugator.deutschCLI:main",
             "conjuguer=Francaisconjugation.cli_scripts:main"
         ]
     },
