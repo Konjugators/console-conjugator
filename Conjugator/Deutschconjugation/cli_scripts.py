@@ -6,8 +6,7 @@ See LICENSE for more information
 """
 import argparse
 import platform
-from Deutschconjugation import conjugator
-from Deutschconjugation import fuzzy
+from Conjugator.Deutschconjugation import conjugator
 from Deutschconjugation import version
 
 
@@ -34,7 +33,7 @@ def get_args() -> str:
             "fuzzy",
             nargs="?",
             help="No arguments necessary, may not work on a Windows",
-        )
+    )
     elif "c" in current_mode:
         parser.add_argument(
             "infinitive",
@@ -78,7 +77,11 @@ def get_args() -> str:
 def modeSelection() -> str:
     args = get_args()
     if args.mode[0] == "f":
-        fuzzy.start()
+        try:
+            from Conjugator.konjcommon import fuzzy
+            fuzzy.start()
+        except ModuleNotFoundError:
+            print("Error; You do not fulfill the software requirements for running the fuzzy finder")
     if args.mode[0] == "c":
         infinitive, pronoun, tense = lower_format()
         z = conjugator.conjugate(infinitive, pronoun, tense, getColorAvailability())
@@ -102,4 +105,7 @@ def main() -> str:
 
 
 if __name__ == "__main__":
+    main()
+
+if __name__ != "__main__":
     main()

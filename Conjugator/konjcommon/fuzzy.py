@@ -4,7 +4,7 @@ Copyright (C) 2020 Shynn Lawrence, Govind Gnanakumar
 See LICENSE for more information
 """
 
-from Deutschconjugation import conjugator
+from Conjugator.Deutschconjugation import conjugator
 from Deutschconjugation import cli_scripts
 
 import time
@@ -158,3 +158,4 @@ def start() -> None:
     x = input("Type a pronoun here: ")
     y = input("Type the tense here: ")
     print(conjugator.conjugate(verb, x, y))
+    

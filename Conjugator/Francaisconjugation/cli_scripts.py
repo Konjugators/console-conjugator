@@ -1,6 +1,5 @@
 import argparse
 import platform
-from Francaisconjugation import conjugator as conj
 
 
 def getColorAvailability() -> bool:

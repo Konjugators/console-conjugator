@@ -65,11 +65,14 @@ $ konjugier f
 Note: Fuzzy Finder is only availible on OS X and Linux distributions
 
 You can also use the conjugation module in python scripts:
+
 ```python
->>> from Deutschconjugation import conjugator
->>> # Follows format verb-pronoun-tense
->>> conjugator.conjugate("spielen", "er", "present-perfect")
-hat gespielt
+>> >
+from Conjugator.Deutschconjugation import conjugator
+>> >  # Follows format verb-pronoun-tense
+>> > conjugator.conjugate("spielen", "er", "present-perfect")
+hat
+gespielt
 ```
 The character-set a^, o^, u^, and s^ will be formatted automatically to ä, ö, ü, and ß (for german) most of the time (full support added soon).
 

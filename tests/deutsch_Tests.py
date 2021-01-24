@@ -7,7 +7,7 @@ z = os.path.join(os.getcwd())
 # Be able to access Deutschconjugation module locally
 sys.path.insert(1, z)
 
-from Deutschconjugation.conjugator import conjugate
+from Conjugator.Deutschconjugation.conjugator import conjugate
 
 
 class TestSum(unittest.TestCase):
