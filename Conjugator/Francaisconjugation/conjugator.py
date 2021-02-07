@@ -73,14 +73,11 @@ def conjugate(infinitive: str, pronoun: str, tense: str, color: bool = False) ->
     # ["present", "past", "simple-past", "future", "imperfect", "conditional"]
     row = conjugations[findIndex(infinitive)]
     if tense == "past":
-        print("rot")
         if "avoir" in row:
             helper = "avoir"
         else:
             helper = "être"
-        print(conjugate(helper, pronoun, 'present'))
-        print(row[1])
-        out = f"{pronoun} {conjugate(helper, pronoun, 'present')} {row[1]}"
+        out = f"{conjugate(helper, pronoun, 'present')} {row[1]}"
     else:
         tense = processTense(tense)
         idx = tenses[tense] + pronouns[pronoun]
@@ -90,7 +87,6 @@ def conjugate(infinitive: str, pronoun: str, tense: str, color: bool = False) ->
     return out
 
 print(conjugate('dire', 'il', 'past'))
-# print(conjugate('avoir', 'il', 'present'))
 
 # DONT DELETE
 """
