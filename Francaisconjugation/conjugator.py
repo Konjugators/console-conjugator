@@ -24,10 +24,13 @@ if __name__ != "__main__" or __name__ == "__main__":
     pronouns = {
         "je": 0,
         "tu": 1,
+        "il": 2,
+        "elle": 2,
         "on": 2,
         "nous": 3,
         "vous": 4,
         "ils": 5,
+        "elles": 5,
     }
 
     tenses = {
@@ -68,19 +71,24 @@ def processTense(tense: str) -> str:
 
 def conjugate(infinitive: str, pronoun: str, tense: str, color: bool = False) -> str:
     # ["present", "past", "simple-past", "future", "imperfect", "conditional"]
-    tense = processTense(tense)
     row = conjugations[findIndex(infinitive)]
     if tense == "past":
+        print("rot")
         if "avoir" in row:
             helper = "avoir"
         else:
             helper = "être"
+        print(conjugate(helper, pronoun, 'present'))
+        print(row[1])
         out = f"{pronoun} {conjugate(helper, pronoun, 'present')} {row[1]}"
     else:
+        tense = processTense(tense)
         idx = tenses[tense] + pronouns[pronoun]
         out = f"{pronoun} {row[idx]}"
     return out
 
+print(conjugate('dire', 'il', 'past'))
+# print(conjugate('avoir', 'il', 'present'))
 
 # DONT DELETE
 """
