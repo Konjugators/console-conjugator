@@ -65,7 +65,11 @@ def get_args() -> str:
             charts for every tense",
         )
     elif "v" in current_mode:
+<<<<<<< HEAD:Conjugator/deutschCLI.py
         print(f"Deutsch-Conjugation version v{__version__.__version__}")
+=======
+        print(f"console-conjugator version v{__version__.__version__}")
+>>>>>>> 260232f4bedf829b41fc10afd0d86552356d563f:Conjugator/Deutschconjugation/cli_scripts.py
     else:
         raise argparse.ArgumentError(
             "You did not provide a proper mode (f, c, or a), please try again with one of such arguments",
