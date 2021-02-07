@@ -11,3 +11,6 @@
 *.so
 
 /docs/build/**
+
+dist
+console_conjugator.egg-info

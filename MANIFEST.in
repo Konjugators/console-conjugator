@@ -1,5 +1,4 @@
 include README.md
-include Deutschconjugation/germanverbs.csv
-include Francaisconjugation/frenchverbs.csv
+include Conjugator/res/*
 exclude docs/*
 exclude tests/*

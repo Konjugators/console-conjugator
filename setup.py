@@ -9,6 +9,9 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+# python setup.py install - For installing package
+#
+
 setuptools.setup(
     name="console-conjugator",
     version="0.1.3",
@@ -21,9 +24,11 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Natural Language :: German",
+        "Natural Language :: French",
+        "Environment :: Console :: Curses",
         "Topic :: Education", 
         "Environment :: Console",
     ],
@@ -31,8 +36,8 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "konjugier=Deutschconjugation.cli_scripts:main",
-            "conjuguer=Francaisconjugation.cli_scripts:main"
+            "konjugier=Conjugator.deutschCLI:main",
+            "conjuguer=Conjugator.frenchCLI:main"
         ]
     },
 )
