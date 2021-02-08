@@ -127,6 +127,11 @@ def colorize(text: str, tense) -> str:
                 + textlist[2].strip()
                 + colors["Reset"]
         )
+    elif len(textlist) == 4:
+        texts = (
+            colors["Green"] + textlist[0].strip() + colors["Red"] + " " + textlist[1].strip() + colors["Magenta"] + " " + textlist[2].strip() + colors["Cyan"] + textlist[2].strip() + colors["Reset"]
+        )
+    print(len(texts))
     return texts
 
 
