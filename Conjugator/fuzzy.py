@@ -12,8 +12,7 @@ import curses
 import os
 import re
 import csv
-from sys import platform
-
+import platform
 
 def allverbs() -> list:
     infinitives = []
@@ -141,14 +140,9 @@ def lauf(coll: list) -> tuple([str, int]):
 
 
 def start() -> None:
-    if platform == "linux" or platform == "linux2":
-        pass
-    elif platform == "darwin":
-        pass
-        # raise("You must be using Linux to use the fuzzy finder (ASCII coloring not generally supported on OSX")
-    elif platform == "win32":
+    if platform.system() == "Windows":
         raise OSError(
-            "You must be on a Linux OS to use the fuzzy finder (ASCII coloring not generally supported on windows)"
+            "You must be on a *nix system to use the fuzzy finder (ANSI escape sequences are generally unsupported on windows)"
         )
     verbsCollections = allverbs()
     text, ind = lauf(verbsCollections)
