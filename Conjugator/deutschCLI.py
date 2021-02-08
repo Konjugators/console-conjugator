@@ -75,12 +75,8 @@ def get_args() -> object:
 def modeSelection() -> None:
     args = get_args()
     if args.mode[0] == "f":
-        try:
-            import Conjugator.fuzzy
-            Conjugator.fuzzy.start()
-        except ModuleNotFoundError as e:
-            print(e)
-            print("Error; You do not fulfill the software requirements for running the fuzzy finder")
+        import Conjugator.fuzzy
+        Conjugator.fuzzy.start()
     if args.mode[0] == "c":
         infinitive, pronoun, tense = lower_format()
         z = conjugator.conjugate(infinitive, pronoun, tense, getColorAvailability())

@@ -8,7 +8,6 @@ from Conjugator.Deutschconjugation import conjugator
 from Conjugator import deutschCLI
 
 import time
-import curses
 import os
 import re
 import csv
@@ -142,8 +141,11 @@ def lauf(coll: list) -> tuple([str, int]):
 def start() -> None:
     if platform.system() == "Windows":
         raise OSError(
-            "You must be on a *nix system to use the fuzzy finder (ANSI escape sequences are generally unsupported on windows)"
+            "You must be on a *nix system to use the fuzzy finder"
         )
+    else:
+        global curses
+        import curses
     verbsCollections = allverbs()
     text, ind = lauf(verbsCollections)
     verb = str(fuzzyfinder(text, verbsCollections)[ind])

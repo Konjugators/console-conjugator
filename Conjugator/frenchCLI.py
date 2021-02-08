@@ -4,11 +4,6 @@ import platform
 from Conjugator.Francaisconjugation import conjugator
 from Conjugator.Francaisconjugation.__version__ import __version__
 
-
-def getColorAvailability() -> bool:
-    return platform.system() != "Windows"
-
-
 def get_args() -> str:
     parser = argparse.ArgumentParser()
     parser.add_argument(
