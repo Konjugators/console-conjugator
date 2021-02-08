@@ -5,16 +5,9 @@ Copyright (C) 2020 Konjugators
 See LICENSE for more information
 """
 import argparse
-import platform
 from Conjugator.Deutschconjugation import conjugator
 from Conjugator.Deutschconjugation import __version__
-
-def getColorAvailability() -> bool:
-    if platform.system() not in ["Linux", "Darwin"]:
-        colors = False
-    else:
-        colors = True
-    return colors
+from Conjugator.oschecks import getColorAvailability
 
 
 # Parse Args

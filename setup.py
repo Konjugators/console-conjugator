@@ -10,11 +10,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 # python setup.py install - For installing package
-#
+# 
 
 setuptools.setup(
     name="console-conjugator",
-    version="0.1.3",
+    version="0.1.4",
     author="Konjugators",
     author_email="shynn.lawrence@gmail.com",
     description="Versatile command line conjugator for german",
