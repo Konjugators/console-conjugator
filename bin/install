@@ -13,13 +13,13 @@ prereqs() {
     if cat /etc/*-release | egrep -qi "manjaro|arch"
     then
         os="arch"
-        echo -e "Your ${GREEN}distribution${NC} has been identified to be an ${BLUE}Arch{NC} derivative."
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be an ${BLUE}Arch${NC} derivative."
         echo -e "Installing ${RED}git${NC} and ${RED}python3${NC}..."
         sudo pacman -S git python3
     elif cat /etc/*-release | egrep -qi "debian|ubuntu"
     then
         os="debian"
-        echo -e "Your ${GREEN}distribution${NC} has been identified to be a ${BLUE}Debian{NC} derivative."
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be a ${BLUE}Debian${NC} derivative."
         echo -e "Installing ${RED}git${NC} and ${RED}python3${NC}..."
         sudo apt update
         sudo apt install git python3
@@ -55,10 +55,10 @@ main() {
     builtin cd console-conjugator
 
     pip3 install .
-    if [ $? -ne 0 ]
-    then
-        sudo pip3 install .
-    fi
+#     if [ $? -ne 0 ]
+#     then
+#         sudo pip3 install .
+#     fi
     
     if [ $? -ne 0 ]
     then
