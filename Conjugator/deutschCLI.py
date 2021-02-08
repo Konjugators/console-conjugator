@@ -6,9 +6,8 @@ See LICENSE for more information
 """
 import argparse
 import platform
-from Deutschconjugation import conjugator
-from Deutschconjugation import __version__
-
+from Conjugator.Deutschconjugation import conjugator
+from Conjugator.Deutschconjugation import __version__
 
 def getColorAvailability() -> bool:
     if platform.system() not in ["Linux", "Darwin"]:
@@ -65,11 +64,7 @@ def get_args() -> str:
             charts for every tense",
         )
     elif "v" in current_mode:
-<<<<<<< HEAD:Conjugator/deutschCLI.py
         print(f"Deutsch-Conjugation version v{__version__.__version__}")
-=======
-        print(f"console-conjugator version v{__version__.__version__}")
->>>>>>> 260232f4bedf829b41fc10afd0d86552356d563f:Conjugator/Deutschconjugation/cli_scripts.py
     else:
         raise argparse.ArgumentError(
             "You did not provide a proper mode (f, c, or a), please try again with one of such arguments",
@@ -83,9 +78,10 @@ def modeSelection() -> None:
     args = get_args()
     if args.mode[0] == "f":
         try:
-            from konjcommon import fuzzy
-            fuzzy.start()
-        except ModuleNotFoundError:
+            import Conjugator.fuzzy
+            Conjugator.fuzzy.start()
+        except ModuleNotFoundError as e:
+            print(e)
             print("Error; You do not fulfill the software requirements for running the fuzzy finder")
     if args.mode[0] == "c":
         infinitive, pronoun, tense = lower_format()

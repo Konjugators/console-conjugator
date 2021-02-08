@@ -85,9 +85,6 @@ def conjugate(infinitive: str, pronoun: str, tense: str, color: bool = False) ->
 
 
     return out
-
-print(conjugate('dire', 'il', 'past'))
-
 # DONT DELETE
 """
 ['infinitive',

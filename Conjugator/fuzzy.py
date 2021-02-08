@@ -5,7 +5,7 @@ See LICENSE for more information
 """
 
 from Conjugator.Deutschconjugation import conjugator
-from Deutschconjugation import cli_scripts
+from Conjugator import deutschCLI
 
 import time
 import curses
@@ -18,7 +18,7 @@ from sys import platform
 def allverbs() -> list:
     infinitives = []
     this_dir, this_filename = os.path.split(__file__)
-    path = os.path.join(this_dir, "germanverbs.csv")
+    path = os.path.join(this_dir, "res/germanverbs.csv")
     with open(path, "r", newline="") as file:
         verblist = csv.reader(file)
         for row in verblist:
