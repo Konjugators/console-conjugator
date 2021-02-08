@@ -27,7 +27,7 @@ or Windows:
 ## Install Script
 ```bash
 git clone https://github.com/Konjugators/console-conjugator.git && cd console-conjugator/bin
-sudo chmod +x install
+chmod +x install
 ./install
 ```
 
