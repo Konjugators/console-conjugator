@@ -11,7 +11,6 @@ from Deutschconjugation import conjugator
 from Deutschconjugation import __version__
 from oschecks import getColorAvailability
 
-
 # Parse Args
 def get_args() -> object:
     """
@@ -72,7 +71,6 @@ def get_args() -> object:
     return args
 
 
-# Literally translates to "Mode understanding - c and f are the mode arguments"
 def modeSelection() -> None:
     args = get_args()
     if args.mode[0] == "f":
