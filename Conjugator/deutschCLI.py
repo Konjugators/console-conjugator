@@ -9,13 +9,9 @@ import platform
 from Conjugator.Deutschconjugation import conjugator
 from Conjugator.Deutschconjugation import __version__
 
-def getColorAvailability() -> bool:
-    if platform.system() not in ["Linux", "Darwin"]:
-        colors = False
-    else:
-        colors = True
-    return colors
 
+def getColorAvailability() -> bool:
+    return platform.system() != "Windows"
 
 # Parse Args
 def get_args() -> str:
@@ -73,7 +69,6 @@ def get_args() -> str:
     return args
 
 
-# Literally translates to "Mode understanding - c and f are the mode arguments"
 def modeSelection() -> None:
     args = get_args()
     if args.mode[0] == "f":
