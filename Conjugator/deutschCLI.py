@@ -5,13 +5,19 @@ Copyright (C) 2020 Konjugators
 See LICENSE for more information
 """
 import argparse
-from Conjugator.Deutschconjugation import conjugator
-from Conjugator.Deutschconjugation import __version__
-from Conjugator.oschecks import getColorAvailability
+import sys
+
+from Deutschconjugation import conjugator
+from Deutschconjugation import __version__
+from oschecks import getColorAvailability
 
 
 # Parse Args
-def get_args() -> str:
+def get_args() -> object:
+    """
+    :rtype: argparse namespace
+    Parses the arguments given into the cli
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "mode",
