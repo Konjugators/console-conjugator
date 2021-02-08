@@ -6,24 +6,17 @@
 ## About
 Hallo!
 
-Have you ever had trouble conjugating your verbs? Forgot "machen" in present-perfect, or maybe "tun" for the pronoun "ihr"? 
-This project may be useful to you! We can help you conjugate almost all of the german standard verbs. See Usage for more information on how to use this tool. 
+Have you ever had trouble conjugating verbs in different languages? Forgot the simple-past of "machen"
+in german, or perhaps the various conjugations of "dire"?
 
+Fear not! Console-conjugator easily allows you to conjugate thousands of verbs from the command-line!
 
 # Installation
 
 ## Install with pip
-On Linux/Mac:
-
 ```bash
-$ pip3 install console-conjugator
+pip/pip3 install console-conjugator
 ```
-
-or Windows:
-```cmd
-> pip install console-conjugator
-```
-
 ## Install Script
 ```bash
 git clone https://github.com/Konjugators/console-conjugator.git && cd console-conjugator/bin
@@ -39,12 +32,16 @@ chmod +x install
 # Usage
 ### After installation, you can use the cli interface in most terminals and scripts
 
+###### --NOTE--
+This Documentation will be moved to readthedocs soon. 
+
 The following tenses are supported (im Deutsch):
 - present
 - simple-past
 - present-perfect
 - past-perfect
 - future
+- future2
 
 Just give the argument "c" (for "command line") and conjugate away:
 ```bash
@@ -53,9 +50,9 @@ er macht
 ```
 You can also create a table of conjugations:
 ```bash
-konjugier a machen alles
+konjugier a machen a
 ```
-Replace "alles" with a specific tense, if wanted: alles will result in tables for all tenses.
+Replace "a" with a specific tense, if wanted: a will result in tables for all tenses.
 To use the fuzzy finder, simply give the argument "f" (Not fully supported):
 ```bash
 $ konjugier f
