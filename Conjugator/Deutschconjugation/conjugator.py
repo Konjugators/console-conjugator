@@ -5,7 +5,6 @@ See LICENSE for more information
 """
 import csv
 import os
-import platform
 import re
 
 
@@ -129,9 +128,9 @@ def colorize(text: str, tense) -> str:
         )
     elif len(textlist) == 4:
         texts = (
-            colors["Green"] + textlist[0].strip() + colors["Red"] + " " + textlist[1].strip() + colors["Magenta"] + " " + textlist[2].strip() + colors["Cyan"] + textlist[2].strip() + colors["Reset"]
+                colors["Green"] + textlist[0].strip() + colors["Red"] + " " + textlist[1].strip() + colors[
+            "Magenta"] + " " + textlist[2].strip() + colors["Cyan"] + " " + textlist[3].strip() + colors["Reset"]
         )
-    print(len(texts))
     return texts
 
 
