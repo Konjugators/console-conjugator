@@ -7,6 +7,7 @@ See LICENSE for more information
 import argparse
 import sys
 
+
 from Conjugator.Deutschconjugation import conjugator
 from Conjugator.Deutschconjugation import __version__
 from Conjugator.oschecks import getColorAvailability
